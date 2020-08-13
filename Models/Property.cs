@@ -10,7 +10,7 @@ namespace FadlonRealEstate.Models
     {
         [Required]
         [DataType(DataType.Text)]
-        [Display(Name = "Property Name")]
+        [Display(Name = "Property ID")]
         public int PropertyID { get; set; }
         [Required]
         [DataType(DataType.Text)]
@@ -22,6 +22,22 @@ namespace FadlonRealEstate.Models
         public string PropertyType { get; set; }
         [Required]
         public int Stock { get; set; }
+        [Required]
+        [Display(Name = "Number of rooms")]
+        public int NumofRooms { get; set; }
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "City")]
+        public string city { get; set; }
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Feautres")]
+        public string Feautres { get; set; }
+        [Required]
+        [Display(Name = "Price")]
+        public int price { get; set; }
+
+
 
         public virtual ICollection<Deal> Deals { get; set; }
 

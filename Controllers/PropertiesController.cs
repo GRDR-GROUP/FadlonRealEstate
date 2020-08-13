@@ -13,12 +13,24 @@ namespace FadlonRealEstate.Controllers
     public class PropertiesController : Controller
     {
         private OfficeDB db = new OfficeDB();
+        public HomeController homec;
 
         // GET: Properties
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult PropertyIndex()
         {
-            return View(db.Properties.ToList());
+            ViewBag.name = "";
+            ViewBag.type = "";
+            ViewBag.stock = "";
+
+            var properties= db.Properties.include(b => b.)
+
         }
+        //public ActionResult Index()
+        //{
+
+        //    return View(db.Properties.ToList());
+        //}
 
         // GET: Properties/Details/5
         public ActionResult Details(int? id)
@@ -123,5 +135,11 @@ namespace FadlonRealEstate.Controllers
             }
             base.Dispose(disposing);
         }
+    }
+    public ActionResult Search(string? type,string? city,int? numofrooms,int? id,string? features,int price)
+    {
+        List<Property> properties = new List<Property>();
+        if()
+
     }
 }
