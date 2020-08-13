@@ -28,7 +28,7 @@ namespace FadlonRealEstate.Controllers
             var Itemsid = (from po in db.Properties
                            join lo in db.Deals
                            on po.PropertyID equals lo.PropertyID
-                           where po.PropertyName.StartsWith(item)
+                           where po.city.StartsWith(item)
                            select lo);
 
             return View(Itemsid.ToList());
