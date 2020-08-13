@@ -12,6 +12,5 @@ namespace FadlonRealEstate.Models
         public DbSet<Property> Properties { get; set; }
         public DbSet<Broker> Brokers { get; set; }
         public DbSet<Deal> Deals { get; set; }
-
     }
 }
