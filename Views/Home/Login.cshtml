@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/Style/HomeStyle/Login.css">
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Fredoka+One|Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Righteous&display=swap" rel="stylesheet" />"
+</head>
+
+<body>
+    <div class="tone-1">
+        <div class="product-info">
+            <form id="formSearch" method="post">
+                <h1 id="h11"> Log In</h1>
+                <div class="row" id="SearchBox">
+                    <div class="col-md-2"> <input type="text" value="@ViewBag.name" id="name" name="Name" placeholder="Username" /></div>
+                </div>
+                <div class="row" id="SearchBox">
+                    <div class="col-md-2"> <input type="password" value="@ViewBag.pass" id="pass" name="pass" placeholder="Password" /></div>
+                </div>
+                <input type="submit" id="submitsearch" value="Log in" />
+            </form>
+        </div>
+    </div>
+
+    <script>
+$(document).ready(function () {
+
+            $('#main').css({
+                "position": "absolute",
+                "display": "flex",
+                "top": "0",
+                "left": "0",
+                "right": "0",
+                "bottom": "0"
+            });
+
+            $('#h11').css({
+                "font-family": "Abril Fatface"
+
+            });
+
+
+        });</script>
+</body>

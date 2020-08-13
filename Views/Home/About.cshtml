@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/Style/HomeStyle/About.css">
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Fredoka+One|Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Righteous&display=swap" rel="stylesheet" />"
+</head>
+
+<body>
+    <h1 style="color:white;margin-top:5rem;margin-bottom:5rem;position:center;text-shadow: 2px 2px black;">Our Team</h1>
+
+    <div class="team">
+
+        <div clsss="member">
+            <img src="~/Content/Resources/Team/Gal.jpeg" alt="gal" style="width:150px;height:150px;border-radius:15px;">
+            <div style="color:white">Gal Jacobson</div>
+        </div>
+
+        <div clsss="member">
+            <img src="~/Content/Resources/Team/miller.jpeg" alt="miller" style="width:150px;height:150px;border-radius:15px;">
+            <div style="color:white">Roey Miller</div>
+        </div>
+
+        <div clsss="member">
+            <img src="~/Content/Resources/Team/dorel.jpeg" alt="dorel" style="width:150px;height:150px;border-radius:15px;">
+            <div style="color:white">Dorel Fadlon</div>
+        </div>
+
+        <div clsss="member">
+            <img src="~/Content/Resources/Team/ron.jpeg" alt="ron" style="width: 150px; height: 150px; border-radius: 15px;">
+            <div style="color:white">Ron Fybish</div>
+        </div>
+    </div>
+
+    <h1 style="color:white;margin-top:5rem;margin-bottom:5rem;position:center;text-shadow: 2px 2px black;">Our Office</h1>
+
+    <div class="mapouter">
+        <div class="gmap_canvas"><iframe width="1140" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=%D7%A8%D7%95%D7%98%D7%A9%D7%99%D7%9C%D7%93%2032%20%D7%91%D7%AA%20%D7%99%D7%9D&t=k&z=15&ie=UTF8&iwloc=&output=embed" frameborder="1" scrolling="yes" marginheight="10rem" marginwidth="0"></iframe></div>
+    </div>
+
+    <div class="facebook">
+        <h4>Like US! Recommend US! Share US!</h4>
+        <div class="fb-like" data-href="https://www.facebook.com/Fadlon-Real-Estate-124652649071990/" data-width="" data-layout="button_count" data-action="like" data-size="large" data-share="false"></div> <div class="fb-like" data-href="https://www.facebook.com/Fadlon-Real-Estate-124652649071990/" data-width="200" data-layout="button_count" data-action="recommend" data-size="large" data-share="true"></div>
+    </div>
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0"></script>
+</body>

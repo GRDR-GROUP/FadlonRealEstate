@@ -1,0 +1,42 @@
+﻿@model FadlonRealEstate.Models.Deal
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Deal</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.CustomerFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CustomerFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Property.PropertyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Property.PropertyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DealID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

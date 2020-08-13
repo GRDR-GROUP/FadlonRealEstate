@@ -1,0 +1,56 @@
+﻿@model IEnumerable<FadlonRealEstate.Models.Deal>
+
+@{
+    ViewBag.Title = "Deals";
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/Style/DealsStyle/Index.css">
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Fredoka+One|Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Righteous&display=swap" rel="stylesheet" />"
+</head>
+
+<body>
+<h2  style="color:white;margin-top:5rem;margin-bottom:5rem;position:center;text-shadow: 2px 2px black;">Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.CustomerFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Property.PropertyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.CustomerFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Property.PropertyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.DealID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.DealID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.DealID })
+            </td>
+        </tr>
+    }
+
+</table>

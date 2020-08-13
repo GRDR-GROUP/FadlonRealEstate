@@ -1,0 +1,83 @@
+﻿body {
+    background: url('../Resources/bg.jpg') no-repeat center center fixed;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Righteous', cursive;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 17px;
+    color: white;
+}
+
+body, html {
+    height: 100%;
+    color: white;
+}
+
+
+
+.footer {
+    background-color: black;
+    left: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    clear: both;
+}
+
+/* Style all font awesome icons */
+.fa {
+    clear: both;
+    left: 0;
+    width: 50px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 25px;
+    text-align: center;
+    text-decoration: none;
+}
+
+    /* Add a hover effect if you want */
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+    background: black;
+    color: white;
+}
+/* Linkedin */
+.fa-linkedin {
+    background: black;
+    color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+    background: black;
+    color: white;
+}
+
+.fa-instagram {
+    background: black;
+    color: white;
+}
+
+.fa-youtube {
+    background: black;
+    color: white;
+}
+
+.fa-google {
+    background: black;
+    color: white;
+}

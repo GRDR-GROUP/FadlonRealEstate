@@ -1,0 +1,47 @@
+﻿row {
+    color: white;
+}
+
+contact {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    grid-gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+    margin-left: 20rem;
+}
+columns {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    grid-gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+    margin-left: 20rem;
+}
+
+
+
+h2, h3, p1 {
+    color: white;
+    font-family: 'Righteous', cursive;
+    font-family: 'Didact Gothic', sans-serif;
+    font-family: 'Fredoka One', cursive;
+}
+
+address{
+    color:white;
+}
+
+weatherwidget-io {
+    color: white;
+}
+.fb-post{
+    margin-top: 5rem;
+}
+.facbook{
+    margin-top: 10rem;
+}

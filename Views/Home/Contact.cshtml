@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/Style/HomeStyle/Contact.css">
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Fredoka+One|Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Righteous&display=swap" rel="stylesheet" />"
+</head>
+
+<body>
+    <div class="contact">
+        <h2 style="color:white; margin-top:3rem">Contact</h2>
+        <h3 style="color:white">Feel free to Contact us:</h3>
+        <address>
+            <strong>EMAIL:</strong>   <a href="mailto:TheBestshopEver@example.com">FadlonRealEstate@gmail.com</a><br />
+            <strong>PHONE NUMBER:</strong> <a href="mailto:TheBestshopEver@example.com">03-9456478</a>
+        </address>
+    </div>
+    <div id="columns" class="row">
+        <div class="facebok">
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0"></script>
+            <div class="fb-post" data-href="https://www.facebook.com/permalink.php?story_fbid=124657625738159&amp;id=124652649071990" data-show-text="true" data-width="200"><blockquote cite="https://developers.facebook.com/permalink.php?story_fbid=124657625738159&amp;id=124652649071990" class="fb-xfbml-parse-ignore"><p>Welcome to our Office!</p>Posted by <a href="https://www.facebook.com/Fadlon-Real-Estate-124652649071990/">Fadlon Real Estate</a> on&nbsp;<a href="https://developers.facebook.com/permalink.php?story_fbid=124657625738159&amp;id=124652649071990">Sunday, August 9, 2020</a></blockquote></div>
+        </div>
+        <canvas id="my-canvas" width="300" height="300"></canvas>
+    </div>
+
+    <p1>Current vibe at our place </p1>
+
+    <a class="weatherwidget-io"
+       href="https://forecast7.com/en/32d0134d75/bat-yam/"
+       data-label_1="Bat-Yam"
+       data-label_2="WEATHER"
+       data-font="Open Sans"
+       data-icons="Climacons Animated"
+       data-mode="Forecast" data-days="5" data-textcolor="#00000">
+        Jerusalem WEATHER
+    </a>
+
+    <script>
+!function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://weatherwidget.io/js/widget.min.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }
+            (document, 'script', 'weatherwidget-io-js');</script>
+
+    <script>
+$(document).ready(function () {
+            $("#flip").click(function () {
+                $("#panel").slideDown("slow");
+            });
+        });</script>
+
+    <script>
+canvas = document.getElementById('my-canvas');
+        var ctx = canvas.getContext('2d');
+        var image = new Image();
+        image.src = "https://www.sustainableplaces.eu/wp-content/uploads/2017/02/SmartBuilding.jpg";
+        ctx.drawImage(image, 0, 0, canvas.width, canvas.hight);</script>
+
+</body>
+
