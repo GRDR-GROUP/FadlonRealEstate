@@ -172,6 +172,7 @@
     <Content Include="Content\Style\HomeStyle\About.css" />
     <Content Include="Content\Style\HomeStyle\Contact.css" />
     <Content Include="Content\Style\HomeStyle\Index.css" />
+    <Content Include="Content\Style\HomeStyle\Gallery.css" />
     <Content Include="Content\Style\HomeStyle\Login.css" />
     <Content Include="Content\Style\Layout.css" />
     <Content Include="Content\Style\PropertiesStyle\Index.css" />
@@ -233,6 +234,7 @@
     <Content Include="Views\Deals\Edit.cshtml" />
     <Content Include="Views\Deals\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Gallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
