@@ -38,9 +38,6 @@ namespace FadlonRealEstate.Models
         public int price { get; set; }
 
 
-
         public virtual ICollection<Deal> Deals { get; set; }
-
-
     }
 }

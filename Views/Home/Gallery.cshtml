@@ -1,0 +1,110 @@
+﻿@model IEnumerable<FadlonRealEstate.Models.Property>
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/Style/HomeStyle/Gallery.css">
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Fredoka+One|Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Righteous&display=swap" rel="stylesheet" />"
+</head>
+
+<body>
+    <h2 style="font-family: 'Righteous', cursive;
+                font-family: 'Didact Gothic', sans-serif;
+                font-family: 'Fredoka One', cursive;">
+        Property Collection
+    </h2>
+
+
+
+    <form id="formSearch" method="post">
+        <div class="row" id="SearchBox">
+            <div class="col-md-2"> Propety Name</div>
+            <div class="col-md-2"> <input type="text" value="@ViewBag.name" id="name" name="name" /></div>
+            <div class="col-md-1">  </div>
+        </div>
+
+        <div class="row" id="SearchBox">
+            <div class="col-md-2"> Propety type</div>
+            <div class="col-md-2"> <input type="text" value="@ViewBag.type" id="type" name="type" /></div>
+            <div class="col-md-1"> </div>
+        </div>
+        <div class="row" id="SearchBox">
+            <div class="col-md-2"> Stock</div>
+            <div class="col-md-2"> <input type="text" value="@ViewBag.stock" id="stock" name="stock" /></div>
+            <div class="col-md-1"> <input type="submit" id="submitsearch" value="Search" /></div>
+        </div>
+    </form>
+    <p>
+
+    </p>
+    <button>
+        @Html.ActionLink("Grouping Items by type", "BasicGroup")
+    </button>
+    <p>
+
+    </p>
+
+  
+
+    <div class="Search">
+        <div class="product-info">
+            <form id="formSearch" method="post">
+                <h1 style="color:white"> Search  </h1>
+                <table>
+                    <tr>
+                        <th>
+                            <div class="col-md-2"> <input type="Type" value="@ViewBag.Type" id="Type" name="Type" placeholder="Type" /></div>
+                        </th>
+                        <th>
+                            <div class="col-md-2"> <input type="City" value="@ViewBag.City" id="City" name="City" placeholder="City" /></div>
+                        </th>
+                        <th>
+                            <div class="col-md-2"> <input type="Price" value="@ViewBag.Price" id="Price" name="Price" placeholder="Price" /></div>
+                        </th>
+                        <th>
+                            <div class="col-md-2"> <input type="Rooms" value="@ViewBag.Rooms" id="Rooms" name="Rooms" placeholder="Rooms" /></div>
+                        </th>
+                        <th>
+                            <div class="col-md-2"> <input type="Features" value="@ViewBag.Features" id="Features" name="Features" placeholder="Features" /></div>
+                        </th>
+                        <th>
+                            <div class="col-md-2"> <input type="ID" value="@ViewBag.ID" id="ID" name="ID" placeholder="ID" /></div>
+                        </th>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+
+<style>
+    #formSearch {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        background-color: #f8f8f8;
+        border: 1.5px solid black;
+    }
+
+    #submitsearch:hover {
+        color: #000;
+        box-shadow: 3px 1rem 2rem rgba(2, 1, 1, 0.3);
+        transform: translateY(-0.5rem);
+        transition: all .5s;
+    }
+</style>
+
+
