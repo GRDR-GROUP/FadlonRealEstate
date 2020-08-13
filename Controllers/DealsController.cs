@@ -25,7 +25,7 @@ namespace FadlonRealEstate.Controllers
         {
             ViewBag.item = item;
 
-            var Itemsid = (from po in db.Property
+            var Itemsid = (from po in db.Properties
                            join lo in db.Deals
                            on po.PropertyID equals lo.PropertyID
                            where po.PropertyName.StartsWith(item)

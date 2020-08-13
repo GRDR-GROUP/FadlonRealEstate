@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class First : DbMigration
+    public partial class first : DbMigration
     {
         public override void Up()
         {
@@ -54,6 +54,10 @@
                         PropertyName = c.String(nullable: false),
                         PropertyType = c.String(nullable: false),
                         Stock = c.Int(nullable: false),
+                        NumofRooms = c.Int(nullable: false),
+                        city = c.String(nullable: false),
+                        Feautres = c.String(nullable: false),
+                        price = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.PropertyID);
             

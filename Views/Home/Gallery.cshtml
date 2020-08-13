@@ -53,41 +53,7 @@
 
     </p>
 
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PropertyName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PropertyType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Stock)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PropertyName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PropertyType)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Stock)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.PropertyID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.PropertyID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.PropertyID })
-                </td>
-            </tr>
-        }
-
-    </table>
+  
 
     <div class="Search">
         <div class="product-info">
