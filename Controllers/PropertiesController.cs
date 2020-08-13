@@ -16,16 +16,18 @@ namespace FadlonRealEstate.Controllers
         public HomeController homec;
 
         // GET: Properties
-        [HttpGet]
-        public ActionResult PropertyIndex()
-        {
-            ViewBag.name = "";
-            ViewBag.type = "";
-            ViewBag.stock = "";
+        //[HttpGet]
+        //public ActionResult PropertyIndex()
+        //{
+        //    ViewBag.PropertyName = "";
+        //    ViewBag.PropertyType = "";
+        //    ViewBag. = "";
+        //    ViewBag.type = "";
 
-            var properties= db.Properties.include(b => b.)
 
-        }
+        //    var properties= db.Property.
+
+        //}
         //public ActionResult Index()
         //{
 
@@ -136,10 +138,10 @@ namespace FadlonRealEstate.Controllers
             base.Dispose(disposing);
         }
     }
-    public ActionResult Search(string? type,string? city,int? numofrooms,int? id,string? features,int price)
-    {
-        List<Property> properties = new List<Property>();
-        if()
+    //public ActionResult Search(string? type,string? city,int? numofrooms,int? id,string? features,int price)
+    //{
+    //    List<Property> properties = new List<Property>();
+    //    if()
 
-    }
+    //}
 }
