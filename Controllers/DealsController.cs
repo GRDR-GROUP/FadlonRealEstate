@@ -20,6 +20,20 @@ namespace FadlonRealEstate.Controllers
             var deals = db.Deals.Include(d => d.Customer).Include(d => d.Property);
             return View(deals.ToList());
         }
+        [HttpPost]
+        public ActionResult Index(string item)
+        {
+            ViewBag.item = item;
+
+            var Itemsid = (from po in db.Property
+                           join lo in db.Deals
+                           on po.PropertyID equals lo.PropertyID
+                           where po.PropertyName.StartsWith(item)
+                           select lo);
+
+            return View(Itemsid.ToList());
+
+        }
 
         // GET: Deals/Details/5
         public ActionResult Details(int? id)
