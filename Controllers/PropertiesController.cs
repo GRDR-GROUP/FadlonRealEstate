@@ -28,11 +28,11 @@ namespace FadlonRealEstate.Controllers
         //    var properties= db.Property.
 
         //}
-        //public ActionResult Index()
-        //{
+        public ActionResult Index()
+        {
 
-        //    return View(db.Properties.ToList());
-        //}
+            return View(db.Properties.ToList());
+        }
 
         // GET: Properties/Details/5
         public ActionResult Details(int? id)
