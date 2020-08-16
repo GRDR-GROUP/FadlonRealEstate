@@ -1,7 +1,7 @@
 # Web Application Development - Final Project
 
 # Real Estate Office WebSite
-[![Presentation Project](/UML/main.png)]
+![Presentation Project](/UML/main.png)
 
 ## Front-End
 ### Implements
