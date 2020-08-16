@@ -1,7 +1,7 @@
 # Web Application Development - Final Project
 
 # Real Estate Office WebSite
-[![Presentation Project](/UML/main.png)](https://www.youtube.com/watch?v=NhhZrdrjUVs)
+[![Presentation Project](/UML/main.png)]
 
 ## Front-End
 # Implements
