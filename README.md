@@ -1,14 +1,13 @@
 # Web Application Development - Final Project
-
 # Real Estate Office WebSite
 [![Presentation Project](/UML/main.png)]
 
 ## Front-End
-# Implements
+### Implements
 C# | Javascript | Entity Framework |
 
 ## Back-End
-# Implements
+### Implements
 HTML\CSS | Bootsrap | jQuery | .NET |  
 
 
