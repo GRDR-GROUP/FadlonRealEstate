@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,7 +13,7 @@ namespace FadlonRealEstate.Controllers
     {
         IDictionary<string, string> BrokersMap = new Dictionary<string, string>();
         IDictionary<string, string> CustomersMap = new Dictionary<string, string>();
-        public static string CustomersName = "";
+        public static string CustomerName = "";
         private OfficeDB db = new OfficeDB();
 
         public ActionResult Index()
@@ -34,13 +35,68 @@ namespace FadlonRealEstate.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Login()
         {
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Login(string name, string pass)
+        {
+            ViewBag.name = name;
+            ViewBag.pass = pass;
+
+            foreach (Broker b in db.Brokers)
+            {
+                BrokersMap.Add(b.BrokerName, b.BrokerPassword);
+            }
+            foreach (Customer c in db.Customers)
+            {
+                CustomersMap.Add(c.CustomerFirstName, c.Email);
+            }
+
+            if (BrokersMap.ContainsKey(name))
+            {
+                if (BrokersMap[name].Equals(pass))
+                {
+                    return RedirectToAction("BrokerHome");
+                }
+                else return RedirectToAction("Index");
+            }
+            else if (CustomersMap.ContainsKey(name))
+            {
+                if (CustomersMap[name].Equals(pass))
+                {
+                    CustomerName = name;
+
+                    return RedirectToAction("CustomerHome");
+                }
+                else return RedirectToAction("Index");
+            }
+            else return RedirectToAction("Index");
+        }
+
         public ActionResult Gallery()
         {
+            return View();
+        }
+
+        public ActionResult CustomerHome()
+        {
+            var deals =(from po in db.Customers
+                       join lo in db.Deals
+                       on po.CustomerID equals lo.CustomerID
+                       where po.CustomerFirstName.StartsWith(CustomerName)
+                       select lo);
+
+            var property= (from bo in db.Properties
+                           join lo in deals
+                           on bo.PropertyID equals lo.PropertyID
+                           where bo.PropertyID == lo.PropertyID
+                           select new { PropertyName = bo.PropertyName, Type = bo.PropertyType, Price = bo.price });
+
+            ICollection<Property> list = new Collection<Property>();
             return View();
         }
     }
