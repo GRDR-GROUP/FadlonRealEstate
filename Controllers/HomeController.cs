@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using FadlonRealEstate.Models;
 using FadlonRealEstate.Controllers;
+using static FadlonRealEstate.Controllers.PropertiesController;
 
 namespace FadlonRealEstate.Controllers
 {
@@ -96,7 +97,40 @@ namespace FadlonRealEstate.Controllers
                            where bo.PropertyID == lo.PropertyID
                            select new { PropertyName = bo.PropertyName, Type = bo.PropertyType, Price = bo.price });
 
-            ICollection<Property> list = new Collection<Property>();
+
+            ICollection<Stat> gList = new Collection<Stat>();
+            
+            var property2 = (from bo in db.Properties
+                             join lo in deals
+                             on bo.PropertyID equals lo.PropertyID
+                             where bo.PropertyID == lo.PropertyID
+                             group bo by bo.NumofRooms into j
+                             select j);
+
+            foreach (var v in property2)
+            {
+                gList.Add(new Stat(v.Key, v.Count())); 
+            }
+
+            int max = 0;
+            foreach (var c in gList)
+            {
+                if(c.Values > max)
+                {
+                    max = c.Values;
+                    ViewBag.type = c.Key;
+                }
+            }
+
+            return View();
+        }
+
+        public ActionResult Logout()
+        {
+            CustomerName = "";
+
+            ViewBag.Admin = "";
+
             return View();
         }
     }

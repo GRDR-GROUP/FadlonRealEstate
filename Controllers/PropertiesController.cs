@@ -137,6 +137,19 @@ namespace FadlonRealEstate.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public class Stat
+        {
+            public int Key;
+            public int Values;
+
+
+            public Stat(int key, int values)
+            {
+                Key = key;
+                Values = values;
+            }
+        }
     }
     //public ActionResult Search(string? type,string? city,int? numofrooms,int? id,string? features,int price)
     //{
