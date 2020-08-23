@@ -235,6 +235,10 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Content\Resources\Team\linkedin.png" />
+    <Content Include="Views\Home\Logout.cshtml" />
+    <Content Include="Views\Shared\_BrokerLayout.cshtml" />
+    <Content Include="Views\Shared\_CustomerLayout.cshtml" />
+    <Content Include="Content\Style\HomeStyle\Logout.css" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

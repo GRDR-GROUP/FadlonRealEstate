@@ -1,6 +1,13 @@
 ﻿@{
     ViewBag.Title = "Home";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (@ViewBag.Admin == "true")
+    {
+        Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    }
 }
 <head>
     <meta charset="utf-8" />
