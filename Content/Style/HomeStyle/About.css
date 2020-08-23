@@ -1,7 +1,8 @@
-﻿.team {
+﻿
+.team {
     display: flex;
     justify-content: center;
-    grid-gap: 2rem
+    grid-gap: 2rem;
 }
 
 .Gal {

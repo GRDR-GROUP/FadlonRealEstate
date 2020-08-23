@@ -1,5 +1,6 @@
-﻿    section {
-    }
+﻿#Search {
+    column-count: 3;
+}
 
     .tone-1 {
         background-image: url('../../Resources/Imeges/three.jpg');
