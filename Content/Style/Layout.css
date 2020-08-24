@@ -12,12 +12,19 @@
     color: white;
 }
 
+.navbar navbar-inverse navbar-fixed-top{
+    margin-top:10rem;
+}
+
 body, html {
     height: 100%;
     color: white;
 }
 
-
+.container {
+    margin-bottom: 5rem;
+    color: white;
+}
 
 .footer {
     background-color: black;
