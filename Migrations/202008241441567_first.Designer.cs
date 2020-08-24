@@ -13,7 +13,7 @@ namespace FadlonRealEstate.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202008131638316_first"; }
+            get { return "202008241441567_first"; }
         }
         
         string IMigrationMetadata.Source
