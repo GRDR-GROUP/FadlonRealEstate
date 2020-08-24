@@ -137,7 +137,7 @@ namespace FadlonRealEstate.Controllers
 
             ViewBag.Admin = "";
 
-            return RedirectToAction("Index");
+            return View();
         }
     }
 }
