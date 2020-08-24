@@ -2,7 +2,7 @@
     ViewBag.Title = "Contact";
     if (@ViewBag.Admin == "true")
     {
-        Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+        Layout = "~/Views/Shared/_BrokerLayout.cshtml";
     }
     else
     {
@@ -17,61 +17,46 @@
 </head>
 
 <body>
-    <div class="contact">
-        <h2 style="color:white; margin-top:3rem">Contact</h2>
-        <h3 style="color:white">Feel free to Contact us:</h3>
-        <address>
-            <strong>EMAIL:</strong>   <a href="mailto:TheBestshopEver@example.com">FadlonRealEstate@gmail.com</a><br />
-            <strong>PHONE NUMBER:</strong> <a href="mailto:TheBestshopEver@example.com">03-9456478</a>
-        </address>
-    </div>
-    <div id="columns" class="row">
-        <div class="facebok">
-            <div id="fb-root"></div>
-            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0"></script>
-            <div class="fb-post" data-href="https://www.facebook.com/permalink.php?story_fbid=124657625738159&amp;id=124652649071990" data-show-text="true" data-width="200"><blockquote cite="https://developers.facebook.com/permalink.php?story_fbid=124657625738159&amp;id=124652649071990" class="fb-xfbml-parse-ignore"><p>Welcome to our Office!</p>Posted by <a href="https://www.facebook.com/Fadlon-Real-Estate-124652649071990/">Fadlon Real Estate</a> on&nbsp;<a href="https://developers.facebook.com/permalink.php?story_fbid=124657625738159&amp;id=124652649071990">Sunday, August 9, 2020</a></blockquote></div>
+    <div class="multi-column">
+        <div class="contact">
+            <h2 style="color:white;">Contact</h2>
+            <h2 style="color:white">Feel free to Contact us:</h2>
+            <address>
+                <strong>EMAIL:</strong> <a href="mailto:TheBestshopEver@example.com">FadlonRealEstate@gmail.com</a><br />
+                <strong>PHONE NUMBER:</strong> <a href="mailto:TheBestshopEver@example.com">03-9456478</a>
+            </address>
         </div>
-        <canvas id="myCanvas" width="300" height="300"></canvas>
+  
+
+        <div class="canvas">
+            <canvas id="myCanvas"></canvas>
+            <img id="scream" width="0" height="0" src="~/Content/Resources/Imeges/bridge.jpg" alt="The Scream">
+        </div>
     </div>
-    <p>Canvas:</p>
-    <canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;">
 
+    <a class="weatherwidget-io" href="https://forecast7.com/en/32d0134d75/bat-yam/" data-label_1="BAT YAM" data-label_2="WEATHER" data-font="Times New Roman" data-icons="Climacons Animated" data-theme="weather_one">BAT YAM WEATHER</a>
+    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');</script>
 
-        <p1>Current vibe at our place </p1>
-
-        <a class="weatherwidget-io"
-           href="https://forecast7.com/en/32d0134d75/bat-yam/"
-           data-label_1="Bat-Yam"
-           data-label_2="WEATHER"
-           data-font="Open Sans"
-           data-icons="Climacons Animated"
-           data-mode="Forecast" data-days="5" data-textcolor="#00000">
-            Jerusalem WEATHER
-        </a>
-
-        <script>!function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (!d.getElementById(id)) {
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = 'https://weatherwidget.io/js/widget.min.js';
-                    fjs.parentNode.insertBefore(js, fjs);
-                }
-            }
-                (document, 'script', 'weatherwidget-io-js');</script>
-
-        <script>$(document).ready(function () {
-                $("#flip").click(function () {
-                    $("#panel").slideDown("slow");
-                });
-            });</script>
-
-        <script>canvas = document.getElementById('myCanvas');
-            var ctx = canvas.getContext('2d');
-            var image = new Image();
-            image.src = "https://www.sustainableplaces.eu/wp-content/uploads/2017/02/SmartBuilding.jpg";
-            ctx.drawImage(image, 0, 0, canvas.width, canvas.hight);</script>
-
-
+    <script>window.onload = function () {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            var img = document.getElementById("scream");
+            ctx.drawImage(img, 3, 3, 295, 150);
+        }</script>
 </body>
 
+<style>
+    .multi-column {
+        margin-top: 8rem;
+        column-count: 2;
+        column-gap: 5px;
+        column-rule-style: hidden;
+        column-rule-width: 3px;
+    }
+
+    #myCanvas {
+        width: 570px;
+        height: 400px;
+        border: 1px solid #d3d3d3;
+    }
+</style>
