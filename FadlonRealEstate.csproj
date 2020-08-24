@@ -170,7 +170,7 @@
     <Content Include="Content\Style\HomeStyle\About.css" />
     <Content Include="Content\Style\HomeStyle\Contact.css" />
     <Content Include="Content\Style\HomeStyle\Index.css" />
-    <Content Include="Content\Style\HomeStyle\Gallery.css" />
+    <Content Include="Content\Style\PropertiesStyle\Gallery.css" />
     <Content Include="Content\Style\HomeStyle\Login.css" />
     <Content Include="Content\Style\Layout.css" />
     <Content Include="Content\Style\PropertiesStyle\Index.css" />
@@ -231,7 +231,7 @@
     <Content Include="Views\Deals\Edit.cshtml" />
     <Content Include="Views\Deals\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\Gallery.cshtml" />
+    <Content Include="Views\Properties\Gallery.cshtml" />
     <Content Include="Content\Resources\Team\linkedin.png" />
     <Content Include="Views\Home\Logout.cshtml" />
     <Content Include="Views\Shared\_BrokerLayout.cshtml" />
@@ -257,6 +257,9 @@
     <Content Include="Content\Resources\gallery\2.jpg" />
     <Content Include="Content\Resources\gallery\3.jpg" />
     <Content Include="Content\Resources\gallery\1.jpg" />
+    <Content Include="Views\Home\BrokerHome.cshtml" />
+    <Content Include="Views\Home\CustomerHome.cshtml" />
+    <Content Include="Views\Properties\Statistics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

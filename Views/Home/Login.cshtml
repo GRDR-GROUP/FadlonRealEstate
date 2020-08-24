@@ -1,14 +1,6 @@
 ﻿
 @{
     ViewBag.Title = "Login";
-    if (@ViewBag.Admin == "true")
-    {
-        Layout = "~/Views/Shared/_BrokerLayout.cshtml";
-    }
-    else
-    {
-        Layout = "~/Views/Shared/_CustomerLayout.cshtml";
-    }
 }
 
 <head>
@@ -27,7 +19,7 @@
                     <div class="col-md-2"> <input type="text" value="@ViewBag.name" id="name" name="Name" placeholder="Username" /></div>
                 </div>
                 <div class="row" id="SearchBox">
-                    <div class="col-md-2"> <input type="password" value="@ViewBag.password" id="password" name="password" placeholder="Password" /></div>
+                    <div class="col-md-2"> <input type="text" value="@ViewBag.password" id="name" name="password" placeholder="password" /></div>
                 </div>
                 <input type="submit" id="submitsearch" value="Log in" />
             </form>

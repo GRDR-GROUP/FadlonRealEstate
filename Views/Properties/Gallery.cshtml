@@ -1,20 +1,12 @@
 ﻿@model IEnumerable<FadlonRealEstate.Models.Property>
 @{
     ViewBag.Title = "Login";
-    if (@ViewBag.Admin == "true")
-    {
-        Layout = "~/Views/Shared/_BrokerLayout.cshtml";
-    }
-    else
-    {
-        Layout = "~/Views/Shared/_CustomerLayout.cshtml";
-    }
 }
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/Content/Style/HomeStyle/Gallery.css">
+    <link rel="stylesheet" href="~/Content/Style/PropertiesStyle/Gallery.css">
 </head>
 
 <body>

@@ -14,7 +14,6 @@ namespace FadlonRealEstate.Models
         public int PropertyID { get; set; }
         public virtual Customer Customer { get; set; }
         public virtual Property Property { get; set; }
-
         public bool Active { get; set; }
 
     }

@@ -14,10 +14,22 @@ namespace FadlonRealEstate.Controllers
     {
         private OfficeDB db = new OfficeDB();
 
+
         // GET: Brokers
+        [HttpGet]
         public ActionResult Index()
         {
+            ViewBag.name = "";
             return View(db.Brokers.ToList());
+        }
+
+        [HttpPost]
+        public ActionResult Index(string name)
+        {
+            ViewBag.name = name;
+
+            var manager = db.Brokers.ToList().Where(p => p.BrokerName.StartsWith(name));
+            return View(manager.ToList());
         }
 
         // GET: Brokers/Details/5

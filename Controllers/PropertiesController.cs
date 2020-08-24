@@ -7,6 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FadlonRealEstate.Models;
+using FadlonRealEstate.Controllers;
+using static FadlonRealEstate.Controllers.PropertiesController;
+using System.Collections.ObjectModel;
 
 namespace FadlonRealEstate.Controllers
 {
@@ -15,26 +18,25 @@ namespace FadlonRealEstate.Controllers
         private OfficeDB db = new OfficeDB();
         public HomeController homec;
 
-        // GET: Properties
-        //[HttpGet]
-        //public ActionResult PropertyIndex()
-        //{
-        //    ViewBag.PropertyName = "";
-        //    ViewBag.PropertyType = "";
-        //    ViewBag. = "";
-        //    ViewBag.type = "";
 
-
-        //    var properties= db.Property.
-
-        //}
         public ActionResult Index()
         {
-
+            ViewBag.name = "";
             return View(db.Properties.ToList());
         }
 
-        // GET: Properties/Details/5
+
+        [HttpPost]
+        public ActionResult Index(string name)
+        {
+            ViewBag.name = name;
+
+            var manager = db.Properties.ToList().Where(p => p.PropertyName.StartsWith(name));
+            return View(manager.ToList());
+        }
+
+
+        // GET: Properties/Details
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -138,23 +140,102 @@ namespace FadlonRealEstate.Controllers
             base.Dispose(disposing);
         }
 
-        public class Stat
+        public ActionResult Gallery()
         {
-            public int Key;
-            public int Values;
+            return View();
+        }
 
+       
+        [HttpGet]
+        public ActionResult Statistics()
+        {
 
-            public Stat(int key, int values)
+            ICollection<Stat> mylist = new Collection<Stat>();
+            var r = (from bo in db.Properties
+                     group bo by bo.PropertyType into j
+                     select j);
+
+            foreach (var v in r)
             {
-                Key = key;
-                Values = values;
+                mylist.Add(new Stat(v.Key, v.Count()));
+
             }
+
+            ViewBag.data = mylist;
+
+            ICollection<Stat> mylist2 = new Collection<Stat>();
+
+            var q = (from lo in db.Deals
+                     join bo in db.Properties
+                     on lo.PropertyID equals bo.PropertyID
+                     where lo.PropertyID == bo.PropertyID
+                     group bo by bo.PropertyName into j
+                     select j);
+
+            foreach (var v in q)
+            {
+                mylist2.Add(new Stat(v.Key, v.Count()));
+
+            }
+
+            ViewBag.data2 = mylist2;
+
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult BasicStatistics()
+        {
+            ICollection<Stat> mylist = new Collection<Stat>();
+            var r = (from bo in db.Properties
+                     group bo by bo.PropertyType into j
+                     select j);
+
+            foreach (var v in r)
+            {
+                mylist.Add(new Stat(v.Key, v.Count()));
+
+            }
+
+            ViewBag.data = mylist;
+
+            ICollection<Stat> mylist2 = new Collection<Stat>();
+
+            var q = (from lo in db.Deals
+                     join bo in db.Properties
+                     on lo.PropertyID equals bo.PropertyID
+                     where lo.PropertyID == bo.PropertyID
+                     group bo by bo.PropertyName into j
+                     select j);
+
+            foreach (var v in q)
+            {
+                mylist2.Add(new Stat(v.Key, v.Count()));
+
+            }
+
+            ViewBag.data2 = mylist2;
+
+            return View();
         }
     }
-    //public ActionResult Search(string? type,string? city,int? numofrooms,int? id,string? features,int price)
-    //{
-    //    List<Property> properties = new List<Property>();
-    //    if()
 
-    //}
+
+    public class Group<K, T>
+    {
+        public K Key { get; set; }
+        public IEnumerable<T> Values { get; set; }
+    }
+    public class Stat
+    {
+        public string Key;
+        public int Values;
+
+
+        public Stat(string key, int values)
+        {
+            Key = key;
+            Values = values;
+        }
+    }
 }

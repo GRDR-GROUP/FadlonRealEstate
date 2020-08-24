@@ -43,10 +43,15 @@ namespace FadlonRealEstate.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(string name, string pass)
+        public ActionResult Login(string name, string password)
         {
             ViewBag.name = name;
-            ViewBag.pass = pass;
+            ViewBag.pass = password;
+            if (CustomerName == "")
+            {
+                ViewBag.Admin = "true";
+            }
+
 
             foreach (Broker b in db.Brokers)
             {
@@ -59,15 +64,16 @@ namespace FadlonRealEstate.Controllers
 
             if (BrokersMap.ContainsKey(name))
             {
-                if (BrokersMap[name].Equals(pass))
+                if (BrokersMap[name].Equals(password))
                 {
+                    ViewBag.Admin = "true";
                     return RedirectToAction("BrokerHome");
                 }
                 else return RedirectToAction("Index");
             }
             else if (CustomersMap.ContainsKey(name))
             {
-                if (CustomersMap[name].Equals(pass))
+                if (CustomersMap[name].Equals(password))
                 {
                     CustomerName = name;
 
@@ -76,11 +82,6 @@ namespace FadlonRealEstate.Controllers
                 else return RedirectToAction("Index");
             }
             else return RedirectToAction("Index");
-        }
-
-        public ActionResult Gallery()
-        {
-            return View();
         }
 
         public ActionResult CustomerHome()
@@ -125,13 +126,18 @@ namespace FadlonRealEstate.Controllers
             return View();
         }
 
+        public ActionResult BrokerHome()
+        {
+            return View();
+        }
+
         public ActionResult Logout()
         {
             CustomerName = "";
 
             ViewBag.Admin = "";
 
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }
