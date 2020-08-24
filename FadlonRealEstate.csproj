@@ -238,6 +238,26 @@
     <Content Include="Views\Shared\_BrokerLayout.cshtml" />
     <Content Include="Views\Shared\_CustomerLayout.cshtml" />
     <Content Include="Content\Style\HomeStyle\Logout.css" />
+    <Content Include="Content\Resources\feature\8.jpg" />
+    <Content Include="Content\Resources\feature\9.jpg" />
+    <Content Include="Content\Resources\feature\12.jpg" />
+    <Content Include="Content\Resources\feature\11.jpg" />
+    <Content Include="Content\Resources\feature\10.jpg" />
+    <Content Include="Content\Resources\feature\4.jpg" />
+    <Content Include="Content\Resources\feature\5.jpg" />
+    <Content Include="Content\Resources\feature\7.jpg" />
+    <Content Include="Content\Resources\feature\6.jpg" />
+    <Content Include="Content\Resources\feature\2.jpg" />
+    <Content Include="Content\Resources\feature\3.jpg" />
+    <Content Include="Content\Resources\feature\1.jpg" />
+    <Content Include="Content\Resources\feature-cate\4.jpg" />
+    <Content Include="Content\Resources\feature-cate\2.jpg" />
+    <Content Include="Content\Resources\feature-cate\3.jpg" />
+    <Content Include="Content\Resources\feature-cate\1.jpg" />
+    <Content Include="Content\Resources\gallery\4.jpg" />
+    <Content Include="Content\Resources\gallery\2.jpg" />
+    <Content Include="Content\Resources\gallery\3.jpg" />
+    <Content Include="Content\Resources\gallery\1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
