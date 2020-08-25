@@ -30,28 +30,26 @@
                     <li>@Html.ActionLink("About Us", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
 
-                    <li>@Html.ActionLink("Gallery", "Gallery", "Properties")</li>
+                    <li>@Html.ActionLink("Gallery", "Index", "Properties")</li>
                     <li>@Html.ActionLink("Brokers", "Index", "Brokers")</li>
-                    <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
-                    <li>@Html.ActionLink("Properties", "Index", "Properties")</li>
-                    <li>@Html.ActionLink("Deals", "Index", "Deals")</li>
 
-                    @if (this.User.IsInRole("Admin"))
+                    @if (ViewBag.Role == "Admin")
                     {
-
+                        <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
+                        <li>@Html.ActionLink("Deals", "Index", "Deals")</li>
+                        <li>@Html.ActionLink("Statistics", "Statistics", "Deals")</li>
                     }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Statistics", "Statistics", "Deals")</li>
-
-                    @if (this.User.IsInRole("Admin"))
-                    {
-                        <li>@Html.ActionLink("Log out", "Logout", "Home")</li>
-                    }
-                    else
+                    @if (ViewBag.Role == "Guest")
                     {
                         <li>@Html.ActionLink("Login", "Login", "Home")</li>
                     }
+                    else
+                    {
+                        <li>@Html.ActionLink("Log out", "Logout", "Home")</li>
+                    }
+                    <h style="font-size:small; color:white;" class="navbar-brand">@ViewBag.Role</h>
                 </ul>
             </div>
         </div>

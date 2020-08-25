@@ -182,5 +182,35 @@ namespace FadlonRealEstate.Controllers
 
             return View();
         }
+
+
+        [HttpGet]
+        public ActionResult Group()
+        {
+            var group = (from bo in db.Properties
+                         group bo by bo.PropertyType into j
+                         select new Group<string, Property> { Key = j.Key, Values = j });
+
+            return View(group.ToList());
+        }
+
+
+    }
+
+    public class Group<K, T>
+    {
+        public K Key { get; set; }
+        public IEnumerable<T> Values { get; set; }
+    }
+    public class Stat
+    {
+        public string Key;
+        public int Values;
+
+        public Stat(string key, int values)
+        {
+            Key = key;
+            Values = values;
+        }
     }
 }

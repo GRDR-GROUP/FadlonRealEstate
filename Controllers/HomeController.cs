@@ -8,6 +8,7 @@ using FadlonRealEstate.Models;
 using FadlonRealEstate.Controllers;
 using static FadlonRealEstate.Controllers.PropertiesController;
 
+
 namespace FadlonRealEstate.Controllers
 {
     public class HomeController : Controller
@@ -16,42 +17,59 @@ namespace FadlonRealEstate.Controllers
         IDictionary<string, string> CustomersMap = new Dictionary<string, string>();
         public static string CustomerName = "";
         private OfficeDB db = new OfficeDB();
+        public static int role = 2;
+
 
         public ActionResult Index()
         {
+            if (role == 0)
+                ViewBag.Role = "Admin";
+            else if (role == 1)
+                ViewBag.Role = "Customer";
+            else
+                ViewBag.Role = "Guest";
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
+            if (role == 0)
+                ViewBag.Role = "Admin";
+            else if (role == 1)
+                ViewBag.Role = "Customer";
+            else
+                ViewBag.Role = "Guest";
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
+            if (role == 0)
+                ViewBag.Role = "Admin";
+            else if (role == 1)
+                ViewBag.Role = "Customer";
+            else
+                ViewBag.Role = "Guest";
             return View();
         }
 
         [HttpGet]
         public ActionResult Login()
         {
+            if (role == 0)
+                ViewBag.Role = "Admin";
+            else if (role == 1)
+                ViewBag.Role = "Customer";
+            else
+                ViewBag.Role = "Guest";
             return View();
         }
 
-        [HttpPost]
+            [HttpPost]
         public ActionResult Login(string name, string password)
         {
             ViewBag.name = name;
             ViewBag.pass = password;
-            if (CustomerName == "")
-            {
-                ViewBag.Admin = "true";
-            }
-
 
             foreach (Broker b in db.Brokers)
             {
@@ -66,31 +84,25 @@ namespace FadlonRealEstate.Controllers
             {
                 if (BrokersMap[name].Equals(password))
                 {
-                    ViewBag.Admin = "true";
-                    return RedirectToAction("BrokerHome");
+                    role = 0;
                 }
-                else return RedirectToAction("Index");
             }
             else if (CustomersMap.ContainsKey(name))
             {
                 if (CustomersMap[name].Equals(password))
                 {
                     CustomerName = name;
-
-                    return RedirectToAction("CustomerHome");
+                    role = 1;
                 }
-                else return RedirectToAction("Index");
             }
-            else return RedirectToAction("Index");
+            return RedirectToAction("Index");
         }
 
         public ActionResult Logout()
         {
             CustomerName = "";
-
-            ViewBag.Admin = "";
-
-            return View();
+            role = 2;
+            return RedirectToAction("Index");
         }
 
         public ActionResult CustomerHome()
@@ -134,12 +146,5 @@ namespace FadlonRealEstate.Controllers
 
             return View();
         }
-
-        public ActionResult BrokerHome()
-        {
-            return View();
-        }
-
-        
     }
 }
