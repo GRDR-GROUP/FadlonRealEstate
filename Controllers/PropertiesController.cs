@@ -130,6 +130,31 @@ namespace FadlonRealEstate.Controllers
             return View();
         }
 
+      
+
+        public ActionResult Catalog(int? id)
+        {
+           
+            ViewBag.Message = "Catalog";
+
+            return View();
+
+
+        }
+
+
+
+        [HttpGet]
+        public ActionResult Group()
+        {
+            var group = (from bo in db.Properties
+                         group bo by bo.PropertyType into j
+                         select new Group<string, Property> { Key = j.Key, Values = j });
+
+            return View(group.ToList());
+        }
+
+
 
         [HttpGet]
         public ActionResult Statistics()

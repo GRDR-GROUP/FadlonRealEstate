@@ -1,7 +1,6 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
 
-    if (this.User.IsInRole("Admin") || !this.User.Identity.IsAuthenticated)
+<!--if (this.User.IsInRole("Admin") || !this.User.Identity.IsAuthenticated)
     {
         Layout = "~/Views/Shared/_BrokerLayout.cshtml";
 
@@ -10,4 +9,4 @@
     {
         Layout = "~/Views/Shared/_CustomerLayout.cshtml";
     }
-}
+    -->
