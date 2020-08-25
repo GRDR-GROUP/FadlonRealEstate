@@ -84,6 +84,15 @@ namespace FadlonRealEstate.Controllers
             else return RedirectToAction("Index");
         }
 
+        public ActionResult Logout()
+        {
+            CustomerName = "";
+
+            ViewBag.Admin = "";
+
+            return View();
+        }
+
         public ActionResult CustomerHome()
         {
             var deals =(from po in db.Customers
@@ -131,13 +140,6 @@ namespace FadlonRealEstate.Controllers
             return View();
         }
 
-        public ActionResult Logout()
-        {
-            CustomerName = "";
-
-            ViewBag.Admin = "";
-
-            return View();
-        }
+        
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -7,36 +8,20 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FadlonRealEstate.Models;
-using FadlonRealEstate.Controllers;
-using static FadlonRealEstate.Controllers.PropertiesController;
-using System.Collections.ObjectModel;
 
 namespace FadlonRealEstate.Controllers
 {
     public class PropertiesController : Controller
     {
         private OfficeDB db = new OfficeDB();
-        public HomeController homec;
 
-
+        // GET: Properties
         public ActionResult Index()
         {
-            ViewBag.name = "";
-            return View(db.Properties.ToList());
+            return View();
         }
 
-
-        [HttpPost]
-        public ActionResult Index(string name)
-        {
-            ViewBag.name = name;
-
-            var manager = db.Properties.ToList().Where(p => p.PropertyName.StartsWith(name));
-            return View(manager.ToList());
-        }
-
-
-        // GET: Properties/Details
+        // GET: Properties/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -62,7 +47,7 @@ namespace FadlonRealEstate.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PropertyID,PropertyName,PropertyType,Stock")] Property property)
+        public ActionResult Create([Bind(Include = "PropertyID,PropertyName,PropertyType,Stock,NumofRooms,city,Feautres,price")] Property property)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +79,7 @@ namespace FadlonRealEstate.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PropertyID,PropertyName,PropertyType,Stock")] Property property)
+        public ActionResult Edit([Bind(Include = "PropertyID,PropertyName,PropertyType,Stock,NumofRooms,city,Feautres,price")] Property property)
         {
             if (ModelState.IsValid)
             {
@@ -145,7 +130,7 @@ namespace FadlonRealEstate.Controllers
             return View();
         }
 
-       
+
         [HttpGet]
         public ActionResult Statistics()
         {
@@ -158,7 +143,6 @@ namespace FadlonRealEstate.Controllers
             foreach (var v in r)
             {
                 mylist.Add(new Stat(v.Key, v.Count()));
-
             }
 
             ViewBag.data = mylist;
@@ -231,11 +215,11 @@ namespace FadlonRealEstate.Controllers
         public string Key;
         public int Values;
 
-
         public Stat(string key, int values)
         {
             Key = key;
             Values = values;
         }
     }
+
 }

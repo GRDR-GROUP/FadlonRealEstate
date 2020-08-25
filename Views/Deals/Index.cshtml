@@ -10,43 +10,117 @@
 </head>
 
 <body>
-<h2  style="color:white;margin-top:5rem;margin-bottom:5rem;position:center;text-shadow: 2px 2px black;">Index</h2>
+    <h2 style="color:white;margin-top:10rem;margin-bottom:5rem;position:center;text-shadow: 2px 2px black;">Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Customer.CustomerFirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Property.PropertyName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Active)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Customer.CustomerFirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Property.PropertyName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Active)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.DealID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.DealID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.DealID })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer.CustomerFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property.PropertyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer.CustomerFirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Property.PropertyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.DealID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.DealID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.DealID })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <h1> Statistics</h1>
+
+    <script>
+        chart = {
+            const svg = d3.create("svg")
+                .attr("viewBox", [0, 0, width, height]);
+
+            const rect = svg.selectAll("g")
+                .data(y01z)
+                .join("g")
+                .attr("fill", (d, i) => z(i))
+                .selectAll("rect")
+                .data(d => d)
+                .join("rect")
+                .attr("x", (d, i) => x(i))
+                .attr("y", height - margin.bottom)
+                .attr("width", x.bandwidth())
+                .attr("height", 0);
+
+            svg.append("g")
+                .call(xAxis);
+
+            function transitionGrouped() {
+            y.domain([0, yMax]);
+
+            rect.transition()
+                .duration(500)
+                .delay((d, i) => i * 20)
+                .attr("x", (d, i) => x(i) + x.bandwidth() / n * d[2])
+                .attr("width", x.bandwidth() / n)
+                .transition()
+                .attr("y", d => y(d[1] - d[0]))
+                .attr("height", d => y(0) - y(d[1] - d[0]));
+        }
+
+        function transitionStacked() {
+            y.domain([0, y1Max]);
+
+            rect.transition()
+                .duration(500)
+                .delay((d, i) => i * 20)
+                .attr("y", d => y(d[1]))
+                .attr("height", d => y(d[0]) - y(d[1]))
+                .transition()
+                .attr("x", (d, i) => x(i))
+                .attr("width", x.bandwidth());
+        }
+
+        function update(layout) {
+            if (layout === "stacked") transitionStacked();
+            else transitionGrouped();
+        }
+
+        return Object.assign(svg.node(), { update });
+
+        data = Object {
+            name: "flare"
+            children: Array(10)[Object, Object, Object, Object, Object, Object, Object, Object, Object, Object]
+        }
+
+        data = FileAttachment("flare-2.json").json()
+
+        partition = ƒ(data)
+
+        partition = data => {
+            const root = d3.hierarchy(data)
+                .sum(d => d.value)
+                .sort((a, b) => b.value - a.value);
+            return d3.partition()
+                .size([2 * Math.PI, root.height + 1])
+                (root);
+    }
+    </script>
+</body>

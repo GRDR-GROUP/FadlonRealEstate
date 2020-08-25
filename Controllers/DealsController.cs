@@ -146,5 +146,11 @@ namespace FadlonRealEstate.Controllers
             }
             base.Dispose(disposing);
         }
+
+        [HttpGet]
+        public ActionResult Statistics()
+        {
+            return View();
+        }
     }
 }

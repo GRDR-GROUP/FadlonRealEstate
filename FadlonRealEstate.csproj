@@ -180,6 +180,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <None Include="Scripts\jquery-3.4.1-vsdoc.js" />
+    <Content Include="Scripts\gallery.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -220,11 +221,6 @@
     <Content Include="Views\Brokers\Details.cshtml" />
     <Content Include="Views\Brokers\Edit.cshtml" />
     <Content Include="Views\Brokers\Index.cshtml" />
-    <Content Include="Views\Properties\Create.cshtml" />
-    <Content Include="Views\Properties\Delete.cshtml" />
-    <Content Include="Views\Properties\Details.cshtml" />
-    <Content Include="Views\Properties\Edit.cshtml" />
-    <Content Include="Views\Properties\Index.cshtml" />
     <Content Include="Views\Deals\Create.cshtml" />
     <Content Include="Views\Deals\Delete.cshtml" />
     <Content Include="Views\Deals\Details.cshtml" />
@@ -260,6 +256,12 @@
     <Content Include="Views\Home\BrokerHome.cshtml" />
     <Content Include="Views\Home\CustomerHome.cshtml" />
     <Content Include="Views\Properties\Statistics.cshtml" />
+    <Content Include="Views\Properties\Create.cshtml" />
+    <Content Include="Views\Properties\Delete.cshtml" />
+    <Content Include="Views\Properties\Details.cshtml" />
+    <Content Include="Views\Properties\Edit.cshtml" />
+    <Content Include="Views\Properties\Index.cshtml" />
+    <Content Include="Views\Deals\Statistics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
