@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -150,6 +151,35 @@ namespace FadlonRealEstate.Controllers
         [HttpGet]
         public ActionResult Statistics()
         {
+            ICollection<Stat> mylist = new Collection<Stat>();
+            var r = (from bo in db.Properties
+                     group bo by bo.PropertyType into j
+                     select j);
+
+            foreach (var v in r)
+            {
+                mylist.Add(new Stat(v.Key, v.Count()));
+            }
+
+            ViewBag.data = mylist;
+
+            ICollection<Stat> mylist2 = new Collection<Stat>();
+
+            var q = (from lo in db.Deals
+                     join bo in db.Properties
+                     on lo.PropertyID equals bo.PropertyID
+                     where lo.PropertyID == bo.PropertyID
+                     group bo by bo.PropertyName into j
+                     select j);
+
+            foreach (var v in q)
+            {
+                mylist2.Add(new Stat(v.Key, v.Count()));
+
+            }
+
+            ViewBag.data2 = mylist2;
+
             return View();
         }
     }

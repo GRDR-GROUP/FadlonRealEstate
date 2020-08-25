@@ -4,47 +4,95 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+   
+    <body>
+
+        <h2 style="margin-top:7rem; color:white;">Index</h2>
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PropertyName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PropertyType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Stock)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumofRooms)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.city)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Feautres)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.price)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PropertyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PropertyType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stock)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumofRooms)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.city)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Feautres)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PropertyID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.PropertyID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PropertyID })
+                    </td>
+                </tr>
+            }
+
+        </table>
 
 
-<div class="row row-cols-1 row-cols-md-2">
+        <div class="row row-cols-1 row-cols-md-2">
 
-    @foreach (var item in Model)
-    {
-        <div class="col mb-4">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            @foreach (var item in Model)
+            {
+                <div class="card" style="color:black; width: 18rem;">
+                    <img src="" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"> @Html.DisplayFor(modelItem => item.PropertyName)</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Stock)</li>
+                        <li class="list-group-item"> @Html.DisplayFor(modelItem => item.NumofRooms)</li>
+                        <li class="list-group-item"> @Html.DisplayFor(modelItem => item.city)</li>
+                        <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Feautres)</li>
+                        <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Stock)</li>
+                        <li class="list-group-item"> @Html.DisplayFor(modelItem => item.price)</li>
+                    </ul>
+
                 </div>
-            </div>
+            }
         </div>
-    }
-</div>
 
-
-
-
-
-
-
-
-
-
-
-<div class="card" style="color:black; width: 18rem;">
-    <img src="" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title"> @Html.DisplayFor(modelItem => item.PropertyName)</h5>
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Stock)</li>
-        <li class="list-group-item"> @Html.DisplayFor(modelItem => item.NumofRooms)</li>
-        <li class="list-group-item"> @Html.DisplayFor(modelItem => item.city)</li>
-        <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Feautres)</li>
-        <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Stock)</li>
-        <li class="list-group-item"> @Html.DisplayFor(modelItem => item.price)</li>
-    </ul>
-
-</div>
+    </body>

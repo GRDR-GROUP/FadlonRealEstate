@@ -119,7 +119,7 @@ namespace FadlonRealEstate.Controllers
 
             foreach (var v in property2)
             {
-                gList.Add(new Stat(v.Key, v.Count())); 
+                //gList.Add(new Stat(v.Key, v.Count())); 
             }
 
             int max = 0;

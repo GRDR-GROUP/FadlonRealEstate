@@ -30,7 +30,6 @@
 
     .product-info h1 {
         position: center;
-        margin: top;
         margin-bottom: 20rem;
         margin-top: 0rem;
         font-size: 4rem;
@@ -104,4 +103,3 @@ a {
     max-width: none !important;
     background: none !important
 }
-

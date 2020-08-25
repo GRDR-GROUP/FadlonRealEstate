@@ -255,14 +255,13 @@
     <Content Include="Content\Resources\gallery\1.jpg" />
     <Content Include="Views\Home\BrokerHome.cshtml" />
     <Content Include="Views\Home\CustomerHome.cshtml" />
-    <Content Include="Views\Properties\Statistics.cshtml" />
     <Content Include="Views\Properties\Create.cshtml" />
     <Content Include="Views\Properties\Delete.cshtml" />
     <Content Include="Views\Properties\Details.cshtml" />
     <Content Include="Views\Properties\Edit.cshtml" />
     <Content Include="Views\Properties\Index.cshtml" />
     <Content Include="Views\Deals\Statistics.cshtml" />
-    <Content Include="Views\Properties\Index - Copy.cshtml" />
+    <Content Include="Views\Home\Index - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

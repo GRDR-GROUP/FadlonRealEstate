@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fadlon Real Estate Office | @ViewBag.Title  </title>
+    <title>@ViewBag.Title | Fadlon Real Estate Office</title>
     <link rel="icon" href="https://cdn5.f-cdn.com/contestentries/1308343/29084380/5ad85717cbaac_thumb900.jpg" type="image/x-icon">
     <link rel="stylesheet" href="~/Content/Style/Layout.css">
 
@@ -32,19 +32,20 @@
 
                     <li>@Html.ActionLink("Gallery", "Gallery", "Properties")</li>
                     <li>@Html.ActionLink("Brokers", "Index", "Brokers")</li>
-
-                    @if (this.User.IsInRole("Admin")) 
-                    { 
-                        <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
-                        <li>@Html.ActionLink("Properties", "Index", "Properties")</li>
-                        <li>@Html.ActionLink("Deals", "Index", "Deals")</li>
-                    }
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
+                    <li>@Html.ActionLink("Properties", "Index", "Properties")</li>
+                    <li>@Html.ActionLink("Deals", "Index", "Deals")</li>
 
                     @if (this.User.IsInRole("Admin"))
                     {
-                        <li>@Html.ActionLink("Statistics", "BasicStatistics", "Deals")</li>
+
+                    }
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Statistics", "Statistics", "Deals")</li>
+
+                    @if (this.User.IsInRole("Admin"))
+                    {
                         <li>@Html.ActionLink("Log out", "Logout", "Home")</li>
                     }
                     else
