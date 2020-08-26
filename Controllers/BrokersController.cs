@@ -28,8 +28,8 @@ namespace FadlonRealEstate.Controllers
         {
             ViewBag.name = name;
 
-            var manager = db.Brokers.ToList().Where(p => p.BrokerName.StartsWith(name));
-            return View(manager.ToList());
+            var Broker = db.Brokers.ToList().Where(p => p.BrokerName.StartsWith(name));
+            return View(Broker.ToList());
         }
 
         // GET: Brokers/Details/5

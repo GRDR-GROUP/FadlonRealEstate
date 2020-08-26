@@ -1,84 +1,43 @@
 ﻿@model IEnumerable<FadlonRealEstate.Models.Property>
 @{
-    ViewBag.Title = "index";
+    ViewBag.Title = "Gallery";
 }
+@using FadlonRealEstate.Controllers
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/Content/Style/PropertiesStyle/Gallery.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
+
 <body>
-    <br />
-    <br />
-    <br />
-
-    <h1>Gallery page</h1>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PropertyName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PropertyType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Stock)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NumofRooms)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.city)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Feautres)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.price)
-            </th>
-            <th></th>
-        </tr>
-
+    <h1 style="color:white; margin-top:7rem; margin-left:35rem;">Gallery</h1>
+    <div class="w3-row-padding">
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PropertyName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PropertyType)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Stock)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumofRooms)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.city)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Feautres)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.price)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.PropertyID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.PropertyID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.PropertyID })
-                </td>
-            </tr>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <img id="@item.Stock" src="~/Content/Resources/feature/" style="width: 357px; height: 250px;" class="w3-hover-opacity">
+                <div class="w3-container w3-black">
+                    <h5><b>@Html.DisplayFor(modelItem => item.PropertyName) - @Html.DisplayFor(modelItem => item.PropertyType) in @Html.DisplayFor(modelItem => item.city)</b></h5>
+                    <p><b>@Html.DisplayFor(modelItem => item.NumofRooms) Rooms & @Html.DisplayFor(modelItem => item.Feautres) for @Html.DisplayFor(modelItem => item.price)$</b></p>
+                </div>
+            </div>
         }
+    </div>
 
-    </table>
-
-        <script src="~/Scripts/gallery.js">
-
-        </script>
-
+    <script>
+        for (var i = 0; i < document.getElementsByTagName('img').length; i++) {
+            var num = document.getElementsByTagName('img')[i].getAttribute('id');
+            document.getElementsByTagName('img')[i].src += num + ".jpg";
+        }
+    </script>
 </body>
 
-
+<style>
+    body, h1, h2, h3, h4, h5, h6 {
+        font-family: "Raleway", sans-serif
+    }
+</style>

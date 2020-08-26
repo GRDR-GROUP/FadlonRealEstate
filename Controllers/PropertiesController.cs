@@ -15,10 +15,19 @@ namespace FadlonRealEstate.Controllers
     {
         private OfficeDB db = new OfficeDB();
 
-        // GET: Properties
+        [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            ViewBag.name = "";
+            return View(db.Properties.ToList());
+        }
+
+        [HttpPost]
+        public ActionResult Index(string name)
+        {
+            ViewBag.name = name;
+            var Property = db.Properties.ToList().Where(p => p.PropertyName.StartsWith(name));
+            return View(Property.ToList());
         }
 
         // GET: Properties/Details/5
@@ -125,9 +134,10 @@ namespace FadlonRealEstate.Controllers
             base.Dispose(disposing);
         }
 
+        [HttpGet]
         public ActionResult Gallery()
         {
-            return View();
+            return View(db.Properties.ToList());
         }
     }
 }

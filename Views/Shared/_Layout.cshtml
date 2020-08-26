@@ -30,26 +30,31 @@
                     <li>@Html.ActionLink("About Us", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
 
-                    <li>@Html.ActionLink("Gallery", "Index", "Properties")</li>
-                    <li>@Html.ActionLink("Brokers", "Index", "Brokers")</li>
+                    <li>@Html.ActionLink("Gallery", "Gallery", "Properties")</li>
+                    <li>@Html.ActionLink("Properties", "Index", "Properties")</li>
 
-                    @if (ViewBag.Role == "Admin")
+                    @if (TempData["Role"] != null)
                     {
-                        <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
-                        <li>@Html.ActionLink("Deals", "Index", "Deals")</li>
-                        <li>@Html.ActionLink("Statistics", "Statistics", "Deals")</li>
+                        if (TempData["Role"].Equals("Admin"))
+                        {
+                            <li>@Html.ActionLink("Brokers", "Index", "Brokers")</li>
+                            <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
+                            <li>@Html.ActionLink("Deals", "Index", "Deals")</li>
+                            <li>@Html.ActionLink("Statistics", "Statistics", "Deals")</li>
+                        }
+                        TempData.Keep();
                     }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    @if (ViewBag.Role == "Guest")
+                    @if (TempData["Role"] != null)
                     {
-                        <li>@Html.ActionLink("Login", "Login", "Home")</li>
+                        <li>@Html.ActionLink("Log out", "Logout", "Home")</li>
+                        <h style="font-size:small; color:white;" class="navbar-brand">@TempData["Role"].ToString()</h>
                     }
                     else
                     {
-                        <li>@Html.ActionLink("Log out", "Logout", "Home")</li>
+                        <li>@Html.ActionLink("Login", "Login", "Home")</li>
                     }
-                    <h style="font-size:small; color:white;" class="navbar-brand">@ViewBag.Role</h>
                 </ul>
             </div>
         </div>

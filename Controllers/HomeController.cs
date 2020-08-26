@@ -17,51 +17,25 @@ namespace FadlonRealEstate.Controllers
         IDictionary<string, string> CustomersMap = new Dictionary<string, string>();
         public static string CustomerName = "";
         private OfficeDB db = new OfficeDB();
-        public static int role = 2;
-
 
         public ActionResult Index()
         {
-            if (role == 0)
-                ViewBag.Role = "Admin";
-            else if (role == 1)
-                ViewBag.Role = "Customer";
-            else
-                ViewBag.Role = "Guest";
             return View();
         }
 
         public ActionResult About()
         {
-            if (role == 0)
-                ViewBag.Role = "Admin";
-            else if (role == 1)
-                ViewBag.Role = "Customer";
-            else
-                ViewBag.Role = "Guest";
             return View();
         }
 
         public ActionResult Contact()
         {
-            if (role == 0)
-                ViewBag.Role = "Admin";
-            else if (role == 1)
-                ViewBag.Role = "Customer";
-            else
-                ViewBag.Role = "Guest";
             return View();
         }
 
         [HttpGet]
         public ActionResult Login()
         {
-            if (role == 0)
-                ViewBag.Role = "Admin";
-            else if (role == 1)
-                ViewBag.Role = "Customer";
-            else
-                ViewBag.Role = "Guest";
             return View();
         }
 
@@ -79,12 +53,11 @@ namespace FadlonRealEstate.Controllers
             {
                 CustomersMap.Add(c.CustomerFirstName, c.Email);
             }
-
             if (BrokersMap.ContainsKey(name))
             {
                 if (BrokersMap[name].Equals(password))
                 {
-                    role = 0;
+                    TempData["Role"] = "Admin";
                 }
             }
             else if (CustomersMap.ContainsKey(name))
@@ -92,16 +65,20 @@ namespace FadlonRealEstate.Controllers
                 if (CustomersMap[name].Equals(password))
                 {
                     CustomerName = name;
-                    role = 1;
+                    TempData["Role"] = "Customer";
                 }
             }
+            else
+                TempData["Role"] = "Guest";
+            TempData.Keep();
+
             return RedirectToAction("Index");
         }
 
         public ActionResult Logout()
         {
             CustomerName = "";
-            role = 2;
+            TempData["Role"] = null;
             return RedirectToAction("Index");
         }
 
