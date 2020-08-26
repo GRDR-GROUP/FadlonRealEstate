@@ -18,33 +18,9 @@
 <body>
     <h2 style="margin-top:7rem; color:white;">Properties</h2>
 
-    <form id="formSearch" method="post">
-        <div class="row" id="SearchBox">
-            <div class="col-md-2"> Property Name</div>
-            <div class="col-md-2"> <input type="text" value="@ViewBag.name" id="name" name="name" style="color:black;"/></div>
-            <div class="col-md-1">  </div>
-        </div>
-
-        <div class="row" id="SearchBox">
-            <div class="col-md-2"> Property type</div>
-            <div class="col-md-2"> <input type="text" value="@ViewBag.type" id="type" name="type"  style="color:black;" /></div>
-            <div class="col-md-1"> <input type="submit" id="submitsearch" value="Search" style="color:black;" /></div>
-        </div>
-        <div class="row" id="SearchBox">
-            <div class="col-md-2"> Price</div>
-            <div class="col-md-2"> <input type="text" value="@ViewBag.stock" id="stock" name="stock"  style="color:black;" /></div>
-        </div>
-    </form>
-
-    <br />
-    <button>
-        @Html.ActionLink("Properties Type Grouping", "Group")
-    </button>
-
-    <br />
-    <hr />
-    <br />
-
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
     <table class="table">
         <tr>
             <th>

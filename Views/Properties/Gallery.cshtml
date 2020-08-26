@@ -3,6 +3,7 @@
     ViewBag.Title = "Gallery";
 }
 @using FadlonRealEstate.Controllers
+@using FadlonRealEstate.Models
 
 <head>
     <meta charset="UTF-8">
@@ -20,9 +21,72 @@
         <div class="gmap_canvas"><iframe width="1130" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=%D7%A8%D7%95%D7%98%D7%A9%D7%99%D7%9C%D7%93%2032%20%D7%91%D7%AA%20%D7%99%D7%9D&t=k&z=15&ie=UTF8&iwloc=&output=embed" frameborder="1" scrolling="yes" marginheight="10" marginwidth="0"></iframe></div>
     </div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk"></script>
-    <div id="map" style="border: 2px solid #3872ac;"></div>
+    <!-- **** Location Search Form Area **** -->
+    <div class="rehomes-search-form-area wow fadeInUp" data-wow-delay="200ms">
+        <div class="container">
+            <form action="#" method="post">
+                <div class="row">
+                    <div class="col-12 col-lg-10">
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <select name="type" id="type" class="form-control">
+                                    <option value="">All Types</option>
+                                    <option value="Commercial">Commercial</option>
+                                    <option value="Office">Office</option>
+                                    <option value="Villa">Villa</option>
+                                    <option value="Apartment">Apartment</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <select name="city" id="city" class="form-control">
+                                    <option value="">City</option>
+                                    <option value="Tel-Aviv">Tel-Aviv</option>
+                                    <option value="Bat-Yam">Bat-Yam</option>
+                                    <option value="Rishon le Zion">Rishon le Zion</option>
+                                    <option value="Jaffa">Jaffa</option>
+                                    <option value="Holon">Holon</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <select name="feat" id="feat" class="form-control">
+                                    <option value="">Feautres</option>
+                                    <option value="Pool">Pool</option>
+                                    <option value="Spa">Spa</option>
+                                    <option value="Yard">Yard</option>
+                                    <option value="Balcony">Balcony</option>
+                                    <option value="Penthouse">Penthouse</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <select name="rooms" id="rooms" class="form-control">
+                                    <option value="">Max Bedrooms</option>
+                                    <option value="1">1</option>
+                                    <option value="10">10</option>
+                                    <option value="100">100</option>
+                                    <option value="1000">1000</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <select name="price" id="price" class="form-control">
+                                    <option value="">Max Price</option>
+                                    <option value="100000">100000$</option>
+                                    <option value="1000000">1000000$</option>
+                                    <option value="10000000">10000000$</option>
+                                    <option value="100000000">100000000$</option>
+                                    <option value="1000000000">1000000000$</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-2">
+                        <div class="col-md-1"> <input type="submit" id="submitsearch" value="Search" style="color:black;" /></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
+    <br />
     <div class="w3-row-padding">
         @foreach (var item in Model)
         {
@@ -43,44 +107,10 @@
         }
     </script>
 
-    <script>
-        function initMap() {
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 8,
-                center: { lat: -34.397, lng: 150.644 }
-            });
-            const geocoder = new google.maps.Geocoder();
-            document.getElementById("submit").addEventListener("click", () => {
-                geocodeAddress(geocoder, map);
-            });
-        }
-
-        function geocodeAddress(geocoder, resultsMap) {
-            const address = document.getElementById("address").value;
-            geocoder.geocode({ address: address }, (results, status) => {
-                if (status === "OK") {
-                    resultsMap.setCenter(results[0].geometry.location);
-                    new google.maps.Marker({
-                        map: resultsMap,
-                        position: results[0].geometry.location
-                    });
-                } else {
-                    alert("Geocode was not successful for the following reason: " + status);
-                }
-            });
-        }
-    </script>
 </body>
 
 <style>
     body, h1, h2, h3, h4, h5, h6 {
         font-family: "Raleway", sans-serif
-    }
-
-    #map_canvas {
-        height: 100%;
-        width: 100%;
-        margin: 0px;
-        padding: 0px
     }
 </style>
