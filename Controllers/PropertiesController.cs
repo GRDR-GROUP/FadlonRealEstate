@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FadlonRealEstate.Models;
+using FadlonRealEstate.Controllers;
 
 namespace FadlonRealEstate.Controllers
 {
@@ -139,5 +140,39 @@ namespace FadlonRealEstate.Controllers
         {
             return View(db.Properties.ToList());
         }
+
+        [HttpGet]
+        public ActionResult Home()
+        {
+            return View(db.Properties.ToList());
+        }
+
+        [HttpPost]
+        public ActionResult Home(string name, string type, int? price)
+        {
+            ViewBag.name = name;
+            ViewBag.type = type;
+            ViewBag.price = price;
+
+            var properties = db.Properties.ToList().Where(p => (p.PropertyName.StartsWith(name) && p.PropertyType.StartsWith(type)));
+            if (price != null)
+            {
+                var b = properties.ToList().Where(p => p.price.Equals(price));
+                return View(b.ToList());
+
+            }
+
+            return View(properties.ToList());
+        }
+
+        [HttpGet]
+        public ActionResult Group()
+        {
+            var group = (from bo in db.Properties
+                         group bo by bo.PropertyType into j
+                         select new Group<string, Property> { Key = j.Key, Values = j });
+            return View(group.ToList());
+        }
+
     }
 }

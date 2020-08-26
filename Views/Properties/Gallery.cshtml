@@ -14,12 +14,20 @@
 
 
 <body>
-    <h1 style="color:white; margin-top:7rem; margin-left:35rem;">Gallery</h1>
+    <h1 style="color:white; margin-top:5rem; margin-left:35rem;">Gallery</h1>
+
+    <div class="mapouter">
+        <div class="gmap_canvas"><iframe width="1130" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=%D7%A8%D7%95%D7%98%D7%A9%D7%99%D7%9C%D7%93%2032%20%D7%91%D7%AA%20%D7%99%D7%9D&t=k&z=15&ie=UTF8&iwloc=&output=embed" frameborder="1" scrolling="yes" marginheight="10" marginwidth="0"></iframe></div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk"></script>
+    <div id="map" style="border: 2px solid #3872ac;"></div>
+
     <div class="w3-row-padding">
         @foreach (var item in Model)
         {
             <div class="w3-third w3-container w3-margin-bottom">
-                <img id="@item.Stock" src="~/Content/Resources/feature/" style="width: 357px; height: 250px;" class="w3-hover-opacity">
+                <a id="sumbit"> <img id="@item.Stock" src="~/Content/Resources/feature/" style="width: 357px; height: 250px;" class="w3-hover-opacity"> </a>
                 <div class="w3-container w3-black">
                     <h5><b>@Html.DisplayFor(modelItem => item.PropertyName) - @Html.DisplayFor(modelItem => item.PropertyType) in @Html.DisplayFor(modelItem => item.city)</b></h5>
                     <p><b>@Html.DisplayFor(modelItem => item.NumofRooms) Rooms & @Html.DisplayFor(modelItem => item.Feautres) for @Html.DisplayFor(modelItem => item.price)$</b></p>
@@ -34,10 +42,45 @@
             document.getElementsByTagName('img')[i].src += num + ".jpg";
         }
     </script>
+
+    <script>
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 8,
+                center: { lat: -34.397, lng: 150.644 }
+            });
+            const geocoder = new google.maps.Geocoder();
+            document.getElementById("submit").addEventListener("click", () => {
+                geocodeAddress(geocoder, map);
+            });
+        }
+
+        function geocodeAddress(geocoder, resultsMap) {
+            const address = document.getElementById("address").value;
+            geocoder.geocode({ address: address }, (results, status) => {
+                if (status === "OK") {
+                    resultsMap.setCenter(results[0].geometry.location);
+                    new google.maps.Marker({
+                        map: resultsMap,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert("Geocode was not successful for the following reason: " + status);
+                }
+            });
+        }
+    </script>
 </body>
 
 <style>
     body, h1, h2, h3, h4, h5, h6 {
         font-family: "Raleway", sans-serif
+    }
+
+    #map_canvas {
+        height: 100%;
+        width: 100%;
+        margin: 0px;
+        padding: 0px
     }
 </style>

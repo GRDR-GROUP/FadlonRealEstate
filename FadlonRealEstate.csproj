@@ -230,28 +230,26 @@
     <Content Include="Views\Properties\Gallery.cshtml" />
     <Content Include="Content\Resources\Team\linkedin.png" />
     <Content Include="Content\Style\HomeStyle\Logout.css" />
-    <Content Include="Content\Resources\feature\8.jpg" />
-    <Content Include="Content\Resources\feature\3.jpg" />
+    <Content Include="Content\Resources\feature\9.jpg" />
+    <Content Include="Content\Resources\feature\4.jpg" />
     <Content Include="Content\Resources\feature\5.jpg" />
     <Content Include="Content\Resources\feature\7.jpg" />
     <Content Include="Content\Resources\feature\6.jpg" />
     <Content Include="Content\Resources\feature\2.jpg" />
-    <Content Include="Content\Resources\feature\4.jpg" />
+    <Content Include="Content\Resources\feature\3.jpg" />
     <Content Include="Content\Resources\feature\1.jpg" />
     <Content Include="Content\Resources\feature\12.jpg" />
     <Content Include="Content\Resources\feature\10.jpg" />
     <Content Include="Content\Resources\feature\11.jpg" />
-    <Content Include="Content\Resources\feature\9.jpg" />
-    <Content Include="Content\Resources\gallery\4.jpg" />
-    <Content Include="Content\Resources\gallery\2.jpg" />
-    <Content Include="Content\Resources\gallery\3.jpg" />
-    <Content Include="Content\Resources\gallery\1.jpg" />
+    <Content Include="Content\Resources\feature\8.jpg" />
     <Content Include="Views\Properties\Create.cshtml" />
     <Content Include="Views\Properties\Delete.cshtml" />
     <Content Include="Views\Properties\Details.cshtml" />
     <Content Include="Views\Properties\Edit.cshtml" />
-    <Content Include="Views\Properties\Index.cshtml" />
     <Content Include="Views\Deals\Statistics.cshtml" />
+    <Content Include="Views\Properties\Home.cshtml" />
+    <Content Include="Views\Properties\Index.cshtml" />
+    <Content Include="Views\Properties\Group.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
