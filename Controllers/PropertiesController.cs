@@ -136,19 +136,25 @@ namespace FadlonRealEstate.Controllers
         }
 
         [HttpGet]
+        public ActionResult Home()
+        {
+            return View(db.Properties.ToList());
+        }
+
+        [HttpGet]
         public ActionResult Gallery()
         {
             return View(db.Properties.ToList());
         }
 
         [HttpPost]
-        public ActionResult Gallery(string name, string type, string city, string feat, int? rooms,int? price)
+        public ActionResult Gallery(string name, string type, string city, string feat,int? price)
         {
             var properties = db.Properties.ToList().Where(p => (p.city.StartsWith(city) && p.PropertyType.StartsWith(type) && p.Feautres.StartsWith(feat)));
             //var properties = db.Properties.ToList().Where(p => (p.PropertyName.StartsWith(name)));
             if (price != null)
             {
-                var b = properties.ToList().Where(p => (p.NumofRooms.Equals(rooms) && p.price.Equals(price)));
+                var b = properties.ToList().Where(p => p.price.Equals(price));
                 return View(b.ToList());
 
             }
