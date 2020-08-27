@@ -49,7 +49,14 @@
                     @if (TempData["Role"] != null)
                     {
                         <li>@Html.ActionLink("Log out", "Logout", "Home")</li>
-                        <h style="font-size:small; color:white;" class="navbar-brand">@TempData["name"].ToString()</h>
+                        if (TempData["Role"].ToString().Equals("Admin"))
+                        {
+                            <li style="margin-top:15px; margin-right:5px;"> @TempData["name"].ToString() </li><img src="~/Content/Resources/Team/Gal.jpeg" style="margin-top:1rem; width:30px; height:30px;" class="profile-image img-circle"> 
+                        }
+                        else
+                        {
+                            <li style="margin-top:15px; margin-right:5px;"> @TempData["name"].ToString() </li>
+                        }
                         TempData.Keep();
                     }
                     else
