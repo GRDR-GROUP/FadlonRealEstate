@@ -15,11 +15,30 @@ namespace FadlonRealEstate.Controllers
         private OfficeDB db = new OfficeDB();
 
         // GET: Customers
+        [HttpGet]
         public ActionResult Index()
         {
             return View(db.Customers.ToList());
         }
 
+        [HttpGet]
+        public ActionResult Home()
+        {
+            return View(db.Customers.ToList());
+        }
+
+        [HttpPost]
+        public ActionResult Home(string fname, string lname, string mail, int? phone)
+        {
+           var Customers = db.Customers.ToList().Where(p => (p.CustomerFirstName.StartsWith(fname) && p.CustomerLastName.StartsWith(lname) && p.Email.StartsWith(mail)));
+            if (phone != null)
+            {
+                var b = Customers.ToList().Where(p => p.PhoneNumber.Equals(phone));
+                return View(b.ToList());
+            }
+           return View(Customers.ToList());
+        }
+  
         // GET: Customers/Details/5
         public ActionResult Details(int? id)
         {

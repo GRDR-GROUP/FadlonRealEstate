@@ -20,25 +20,25 @@
 
     <form id="formSearch" method="post">
         <div class="row" id="SearchBox">
-            <div class="col-md-2"> Deal Name</div>
+            <div class="col-md-2"> Customer Name</div>
             <div class="col-md-2"> <input type="text" id="name" name="name" style="color:black;"/></div>
             <div class="col-md-1">  </div>
         </div>
 
         <div class="row" id="SearchBox">
-            <div class="col-md-2"> Deal type</div>
+            <div class="col-md-2"> Property type</div>
             <div class="col-md-2"> <input type="text" id="type" name="type"  style="color:black;" /></div>
             <div class="col-md-1"> <input type="submit" id="submitsearch" value="Search" style="color:black;" /></div>
         </div>
         <div class="row" id="SearchBox">
-            <div class="col-md-2"> City</div>
-            <div class="col-md-2"> <input type="text" id="city" name="city"  style="color:black;" /></div>
+            <div class="col-md-2"> Deal ID</div>
+            <div class="col-md-2"> <input type="text" id="deal" name="deal"  style="color:black;" /></div>
         </div>
     </form>
 
     <br />
     <button>
-        @Html.ActionLink("Deals Type Grouping", "Group")
+        @Html.ActionLink("Joining Deals & Properties", "Join")
     </button>
 
     <br />

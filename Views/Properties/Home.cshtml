@@ -18,6 +18,31 @@
 <body>
     <h2 style="margin-top:7rem; color:white;">Properties</h2>
 
+    <form id="formSearch" method="post">
+        <div class="row" id="SearchBox">
+            <div class="col-md-2"> Property Name</div>
+            <div class="col-md-2"> <input type="text" id="name" name="name" style="color:black;" /></div>
+            <div class="col-md-1">  </div>
+        </div>
+
+        <div class="row" id="SearchBox">
+            <div class="col-md-2"> Property Type</div>
+            <div class="col-md-2"> <input type="text" id="type" name="type" style="color:black;" /></div>
+            <div class="col-md-1"> <input type="submit" id="submitsearch" value="Search" style="color:black;" /></div>
+        </div>
+        <div class="row" id="SearchBox">
+            <div class="col-md-2"> Property Price</div>
+            <div class="col-md-2"> <input type="text" id="price" name="price" style="color:black;" /></div>
+        </div>
+    </form>
+
+    <br />
+    <button>
+        @Html.ActionLink("Properties Type Grouping", "Group")
+    </button>
+
+    <hr />
+
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>

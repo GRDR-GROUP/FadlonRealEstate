@@ -19,17 +19,20 @@ namespace FadlonRealEstate.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.name = "";
+            return View(db.Brokers.ToList());
+        }
+
+        [HttpGet]
+        public ActionResult Home()
+        {
             return View(db.Brokers.ToList());
         }
 
         [HttpPost]
-        public ActionResult Index(string name)
+        public ActionResult Home(string name, string pass)
         {
-            ViewBag.name = name;
-
-            var Broker = db.Brokers.ToList().Where(p => p.BrokerName.StartsWith(name));
-            return View(Broker.ToList());
+            var Brokers = db.Brokers.ToList().Where(p => (p.BrokerName.StartsWith(name) && p.BrokerPassword.StartsWith(pass)));
+            return View(Brokers.ToList());
         }
 
         // GET: Brokers/Details/5

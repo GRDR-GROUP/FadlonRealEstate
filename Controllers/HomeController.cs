@@ -39,11 +39,10 @@ namespace FadlonRealEstate.Controllers
             return View();
         }
 
-            [HttpPost]
+        [HttpPost]
         public ActionResult Login(string name, string password)
         {
-            ViewBag.name = name;
-            ViewBag.pass = password;
+            TempData["name"] = name.ToString();
 
             foreach (Broker b in db.Brokers)
             {
@@ -64,7 +63,6 @@ namespace FadlonRealEstate.Controllers
             {
                 if (CustomersMap[name].Equals(password))
                 {
-                    CustomerName = name;
                     TempData["Role"] = "Customer";
                 }
             }
@@ -80,48 +78,6 @@ namespace FadlonRealEstate.Controllers
             CustomerName = "";
             TempData["Role"] = null;
             return RedirectToAction("Index");
-        }
-
-        public ActionResult CustomerHome()
-        {
-            var deals =(from po in db.Customers
-                       join lo in db.Deals
-                       on po.CustomerID equals lo.CustomerID
-                       where po.CustomerFirstName.StartsWith(CustomerName)
-                       select lo);
-
-            var property= (from bo in db.Properties
-                           join lo in deals
-                           on bo.PropertyID equals lo.PropertyID
-                           where bo.PropertyID == lo.PropertyID
-                           select new { PropertyName = bo.PropertyName, Type = bo.PropertyType, Price = bo.price });
-
-
-            ICollection<Stat> gList = new Collection<Stat>();
-            
-            var property2 = (from bo in db.Properties
-                             join lo in deals
-                             on bo.PropertyID equals lo.PropertyID
-                             where bo.PropertyID == lo.PropertyID
-                             group bo by bo.NumofRooms into j
-                             select j);
-
-            foreach (var v in property2)
-            {
-                //gList.Add(new Stat(v.Key, v.Count())); 
-            }
-
-            int max = 0;
-            foreach (var c in gList)
-            {
-                if(c.Values > max)
-                {
-                    max = c.Values;
-                    ViewBag.type = c.Key;
-                }
-            }
-
-            return View();
         }
     }
 }

@@ -141,6 +141,54 @@ namespace FadlonRealEstate.Controllers
             return View(db.Properties.ToList());
         }
 
+        [HttpPost]
+        public ActionResult Home(string name, string type, int? price)
+        {
+            var properties = db.Properties.ToList().Where(p => (p.PropertyName.StartsWith(name) && p.PropertyType.StartsWith(type) && p.price.Equals(price)));
+            return View(properties.ToList());
+        }
+
+        [HttpPost]
+        public ActionResult Group(string customer)
+        {
+            var deals = (from po in db.Customers
+                         join lo in db.Deals
+                         on po.CustomerID equals lo.CustomerID
+                         where po.CustomerFirstName.StartsWith(customer)
+                         select lo);
+
+            var property = (from bo in db.Properties
+                            join lo in deals
+                            on bo.PropertyID equals lo.PropertyID
+                            where bo.PropertyID == lo.PropertyID
+                            select new { PropertyName = bo.PropertyName, Type = bo.PropertyType, Price = bo.price });
+
+
+            var property2 = (from bo in db.Properties
+                             join lo in deals
+                             on bo.PropertyID equals lo.PropertyID
+                             where bo.PropertyID == lo.PropertyID
+                             group bo by bo.NumofRooms into j
+                             select j);
+
+            /*foreach (var v in property2)
+            {
+                gList.Add(new Stat(v.Key, v.Count())); 
+            }
+
+            int max = 0;
+            foreach (var c in gList)
+            {
+                if (c.Values > max)
+                {
+                    max = c.Values;
+                    ViewBag.type = c.Key;
+                }
+            }*/
+
+            return View();
+        }
+
         [HttpGet]
         public ActionResult Gallery()
         {
@@ -160,6 +208,15 @@ namespace FadlonRealEstate.Controllers
             }
 
             return View(properties.ToList());
+        }
+
+        [HttpGet]
+        public ActionResult Group()
+        {
+            var group = (from bo in db.Properties
+                         group bo by bo.PropertyType into j
+                         select new Group<string, Property> { Key = j.Key, Values = j });
+            return View(group.ToList());
         }
 
     }

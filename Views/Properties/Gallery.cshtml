@@ -5,100 +5,134 @@
 @using FadlonRealEstate.Controllers
 @using FadlonRealEstate.Models
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
 
 
-<body>
-    <h1 style="color:white; margin-top:5rem; margin-left:35rem;">Gallery</h1>
+    <body>
+        <h1 style="color:white; margin-top:5rem; margin-left:35rem;">Gallery</h1>
 
-    <div class="mapouter">
-        <div class="gmap_canvas"><iframe width="1130" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=%D7%A8%D7%95%D7%98%D7%A9%D7%99%D7%9C%D7%93%2032%20%D7%91%D7%AA%20%D7%99%D7%9D&t=k&z=15&ie=UTF8&iwloc=&output=embed" frameborder="1" scrolling="yes" marginheight="10" marginwidth="0"></iframe></div>
-    </div>
+        <div class="mapouter">
+            <div class="gmap_canvas">
+                <iframe width="1130" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=%D7%A8%D7%95%D7%98%D7%A9%D7%99%D7%9C%D7%93%2032%20%D7%91%D7%AA%20%D7%99%D7%9D&t=k&z=15&ie=UTF8&iwloc=&output=embed" frameborder="1" scrolling="yes" marginheight="10" marginwidth="0"></iframe>
+            </div>
+        </div>
 
-    <!-- **** Location Search Form Area **** -->
-    <div class="rehomes-search-form-area wow fadeInUp" data-wow-delay="200ms">
-        <div class="container">
-            <form action="#" method="post">
-                <div class="row">
-                    <div class="col-12 col-lg-10">
+        <fieldset style="">
+            <legend>Search Property</legend>
+            <!-- **** Location Search Form Area **** -->
+            <div class="rehomes-search-form-area wow fadeInUp" data-wow-delay="200ms">
+                <div class="container">
+                    <form action="#" method="post">
                         <div class="row">
-                            <div class="col-12 col-md-6 col-lg-3">
-                                <select name="type" id="type" class="form-control">
-                                    <option value="">All Types</option>
-                                    <option value="Commercial">Commercial</option>
-                                    <option value="Office">Office</option>
-                                    <option value="Villa">Villa</option>
-                                    <option value="Apartment">Apartment</option>
-                                </select>
+                            <div class="col-12 col-lg-10">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 col-lg-3">
+                                        <select name="type" id="type" class="form-control">
+                                            <option value="">All Types</option>
+                                            <option value="Commercial">Commercial</option>
+                                            <option value="Office">Office</option>
+                                            <option value="Villa">Villa</option>
+                                            <option value="Apartment">Apartment</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-3">
+                                        <select name="city" id="city" class="form-control">
+                                            <option value="">City</option>
+                                            <option value="Tel-Aviv">Tel-Aviv</option>
+                                            <option value="Bat-Yam">Bat-Yam</option>
+                                            <option value="Rishon le Zion">Rishon le Zion</option>
+                                            <option value="Jaffa">Jaffa</option>
+                                            <option value="Holon">Holon</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-3">
+                                        <select name="feat" id="feat" class="form-control">
+                                            <option value="">Feautres</option>
+                                            <option value="Pool">Pool</option>
+                                            <option value="Spa">Spa</option>
+                                            <option value="Yard">Yard</option>
+                                            <option value="Balcony">Balcony</option>
+                                            <option value="Penthouse">Penthouse</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-3">
+                                        <select name="price" id="price" class="form-control">
+                                            <option value="">Max Price</option>
+                                            <option value="100000">100000$</option>
+                                            <option value="1000000">1000000$</option>
+                                            <option value="10000000">10000000$</option>
+                                            <option value="100000000">100000000$</option>
+                                            <option value="1000000000">1000000000$</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-3">
-                                <select name="city" id="city" class="form-control">
-                                    <option value="">City</option>
-                                    <option value="Tel-Aviv">Tel-Aviv</option>
-                                    <option value="Bat-Yam">Bat-Yam</option>
-                                    <option value="Rishon le Zion">Rishon le Zion</option>
-                                    <option value="Jaffa">Jaffa</option>
-                                    <option value="Holon">Holon</option>
-                                </select>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-3">
-                                <select name="feat" id="feat" class="form-control">
-                                    <option value="">Feautres</option>
-                                    <option value="Pool">Pool</option>
-                                    <option value="Spa">Spa</option>
-                                    <option value="Yard">Yard</option>
-                                    <option value="Balcony">Balcony</option>
-                                    <option value="Penthouse">Penthouse</option>
-                                </select>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-3">
-                                <select name="price" id="price" class="form-control">
-                                    <option value="">Max Price</option>
-                                    <option value="100000">100000$</option>
-                                    <option value="1000000">1000000$</option>
-                                    <option value="10000000">10000000$</option>
-                                    <option value="100000000">100000000$</option>
-                                    <option value="1000000000">1000000000$</option>
-                                </select>
+                            <div class="col-12 col-lg-2">
+                                <button type="submit" style="color:black;">Search</button>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-2">
-                        <button type="submit" style="color:black;">Search</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <br />
-    <div class="w3-row-padding">
-        @foreach (var item in Model)
-        {
-            <div class="w3-third w3-container w3-margin-bottom">
-                <a id="sumbit"> <img id="@item.Stock" src="~/Content/Resources/feature/" style="width: 357px; height: 250px;" class="w3-hover-opacity"> </a>
-                <div class="w3-container w3-black">
-                    <h5><b>@Html.DisplayFor(modelItem => item.PropertyName) - @Html.DisplayFor(modelItem => item.PropertyType) in @Html.DisplayFor(modelItem => item.city)</b></h5>
-                    <p><b>@Html.DisplayFor(modelItem => item.NumofRooms) Rooms & @Html.DisplayFor(modelItem => item.Feautres) for @Html.DisplayFor(modelItem => item.price)$</b></p>
+                    </form>
                 </div>
             </div>
-        }
-    </div>
+        </fieldset>
 
-    <script>
-        for (var i = 0; i < document.getElementsByTagName('img').length; i++) {
-            var num = document.getElementsByTagName('img')[i].getAttribute('id');
-            document.getElementsByTagName('img')[i].src += num + ".jpg";
-        }
-    </script>
+        <br />
+        <div class="w3-row-padding">
+            @foreach (var item in Model)
+            {
+                <div class="w3-third w3-container w3-margin-bottom">
+                    <a id="sumbit"> <img id="@item.Stock" src="~/Content/Resources/feature/" style="width: 357px; height: 250px;" class="w3-hover-opacity"> </a>
+                    <div class="w3-container w3-black">
+                        <h5><b>@Html.DisplayFor(modelItem => item.PropertyName) - @Html.DisplayFor(modelItem => item.PropertyType) in @Html.DisplayFor(modelItem => item.city)</b></h5>
+                        <p><b>@Html.DisplayFor(modelItem => item.NumofRooms) Rooms & @Html.DisplayFor(modelItem => item.Feautres) for @Html.DisplayFor(modelItem => item.price)$</b></p>
+                    </div>
+                </div>
+            }
+        </div>
 
-</body>
+        <script>
+            for (var i = 0; i < document.getElementsByTagName('img').length; i++) {
+                var num = document.getElementsByTagName('img')[i].getAttribute('id');
+                document.getElementsByTagName('img')[i].src += num + ".jpg";
+            }
+        </script>
+
+        <script>
+
+            @foreach (var item in Model)
+            {
+                var city = item.city;
+            }
+
+            function initialize() {
+                var mapDiv = document.getElementById('gmap_canvas');
+                var map;
+                var address = city;
+                var geocoder = new google.maps.Geocoder();
+                // Get LatLng information by name
+                geocoder.geocode({
+                    "address": address
+                }, function (results, status) {
+                    map = new google.maps.Map(mapDiv, {
+                        // Center map (but check status of geocoder)
+                        center: results[0].geometry.location,
+                        zoom: 8,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    })
+
+                });
+            }
+        </script>
+
+
+
+    </body>
 
 <style>
     body, h1, h2, h3, h4, h5, h6 {

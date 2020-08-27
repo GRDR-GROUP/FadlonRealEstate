@@ -22,20 +22,25 @@ namespace FadlonRealEstate.Controllers
             var deals = db.Deals.Include(d => d.Customer).Include(d => d.Property);
             return View(deals.ToList());
         }
-        [HttpPost]
-        public ActionResult Index(string item)
+
+        [HttpGet]
+        public ActionResult Home()
         {
-            ViewBag.item = item;
-
-            var Itemsid = (from po in db.Properties
-                           join lo in db.Deals
-                           on po.PropertyID equals lo.PropertyID
-                           where po.city.StartsWith(item)
-                           select lo);
-
-            return View(Itemsid.ToList());
-
+            return View(db.Deals.ToList());
         }
+
+        [HttpPost]
+        public ActionResult Home(string name, string type,int? deal)
+        {
+            var Deals = db.Deals.ToList().Where(p => (p.Customer.CustomerFirstName.StartsWith(name) && p.Property.PropertyType.StartsWith(type)));
+            if (deal != null)
+            {
+                var b = Deals.ToList().Where(p => p.DealID.Equals(deal));
+                return View(b.ToList());
+            }
+            return View(Deals.ToList());
+        }
+
 
         // GET: Deals/Details/5
         public ActionResult Details(int? id)
@@ -185,31 +190,69 @@ namespace FadlonRealEstate.Controllers
         }
 
 
-
+/*
         [HttpGet]
-        public ActionResult Home()
+        public ActionResult Join()
         {
-            return View(db.Deals.ToList());
-        }
+            string CustomerName = TempData["name"].ToString();
+            var Delas = (from bo in db.Customers
+                         join lo in db.Deals
+                         on bo.CustomerID equals lo.CustomerID
+                         where bo.CustomerFirstName.StartsWith(CustomerName)
+                         select lo);
 
-        [HttpPost]
-        public ActionResult Home(string name, string type, string city)
-        {
-            var Deals = db.Deals.ToList().Where(p => (p.Customer.CustomerFirstName.StartsWith(name) && p.Property.PropertyType.StartsWith(type) && p.Property.city.StartsWith(city)));
-            return View(Deals.ToList());
-        }
 
-        [HttpGet]
-        public ActionResult Group()
-        {
-            var group = (from bo in db.Properties
+            var item = (from bo in db.Properties
+                        join lo in Delas
+                        on bo.PropertyID equals lo.PropertyID
+                        where bo.PropertyID == lo.PropertyID
+                        select new { itemname = bo.PropertyName, Brand = bo.BrandID, type = bo.ItemType });
+
+            var total = (from bo in db.Brands
+                         join lo in item
+                         on bo.BrandID equals lo.Brand
+                         where bo.BrandID == lo.Brand
+                         select new { itemname = lo.itemname, Brand = bo.BrandName, type = lo.type });
+
+            ICollection<Property> list = new Collection<Property>();
+
+            foreach (var v in total)
+            {
+                list.Add(new Property(total.Count(), v.itemname, v.Brand, v.type));
+
+            }
+            ViewBag.data = list;
+
+            ICollection<Stat> gList = new Collection<Stat>();
+
+
+            var item2 = (from bo in db.Properties
+                         join lo in Delas
+                         on bo.PropertyID equals lo.PropertyID
+                         where bo.PropertyID == lo.PropertyID
                          group bo by bo.PropertyType into j
-                         select new Group<string, Property> { Key = j.Key, Values = j });
-            return View(group.ToList());
+                         select j);
+
+            foreach (var v in item2)
+            {
+                gList.Add(new Stat(v.Key, v.Count()));
+
+            }
+
+            int max = 0;
+            foreach (var c in gList)
+            {
+                if (c.Values > max)
+                {
+                    max = c.Values;
+                    ViewBag.type = c.Key;
+                }
+            }
+
+            return View();
         }
-
-
-
+*/
+    
     }
 
     public class Group<K, T>
