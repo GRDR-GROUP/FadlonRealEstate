@@ -100,7 +100,8 @@ Separation using TempData
 ### APIs
 
 Google Maps
-![Presentation Project](/UML/Google Maps.png)
+
+![Presentation Project](/UML/GoogleMaps.png)
 
 ```scala
   <div class="mapouter">
@@ -109,6 +110,7 @@ Google Maps
 ```
 
 Facebook
+
 ![Presentation Project](/UML/Facebook.png)
 ```scala
   <div class="facebook">
@@ -123,6 +125,7 @@ Facebook
 ### Web Service
 
 Weather
+
 ![Presentation Project](/UML/Weather.png)
 ```scala
  <a class="weatherwidget-io" href="https://forecast7.com/en/32d0134d75/bat-yam/" data-label_1="BAT YAM" data-label_2="WEATHER" data-font="Times New Roman" data-icons="Climacons Animated" data-theme="weather_one">BAT YAM WEATHER</a>
