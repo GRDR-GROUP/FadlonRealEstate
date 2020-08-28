@@ -164,8 +164,13 @@
     <Content Include="Content\Resources\Team\Gal.jpeg" />
     <Content Include="Content\Resources\Team\miller.jpeg" />
     <Content Include="Content\Resources\Team\ron.jpeg" />
+    <Content Include="Content\Style\BrokersStyle\Home.css" />
     <Content Include="Content\Style\BrokersStyle\Index.css" />
+    <Content Include="Content\Style\CustomersStyle\Home.css" />
     <Content Include="Content\Style\CustomersStyle\Index.css" />
+    <Content Include="Content\Style\DealsStyle\Home.css" />
+    <Content Include="Content\Style\DealsStyle\Statistics.css" />
+    <Content Include="Content\Style\DealsStyle\Join.css" />
     <Content Include="Content\Style\DealsStyle\Index.css" />
     <Content Include="Content\Style\HomeStyle\About.css" />
     <Content Include="Content\Style\HomeStyle\Contact.css" />
@@ -173,6 +178,8 @@
     <Content Include="Content\Style\PropertiesStyle\Gallery.css" />
     <Content Include="Content\Style\HomeStyle\Login.css" />
     <Content Include="Content\Style\Layout.css" />
+    <Content Include="Content\Style\PropertiesStyle\Group.css" />
+    <Content Include="Content\Style\PropertiesStyle\Home.css" />
     <Content Include="Content\Style\PropertiesStyle\Index.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
