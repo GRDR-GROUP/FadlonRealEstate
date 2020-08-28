@@ -39,44 +39,6 @@ JOIN
             return View();   
        }
 ```
-### Statistics
-```scala
- <Script>
- Highcharts.setOptions(Highcharts.theme);
-
-            Highcharts.chart('container2', {
-                data: {
-                    table: 'datatable2'
-                },
-                colors: ['#2b908f', '#90ee7e', '#f45b5b', '#7798BF', '#aaeeee', '#ff0066',
-                    '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
-                chart: {
-                    type: 'pie'
-                },
-
-                title: {
-                    text: 'Deals Statistics'
-                },
-                subtitle: {
-                    text: 'By Property Name'
-                },
-                plotOptions: {
-                    series: {
-                        dataLabels: {
-                            enabled: true,
-                            format: '{point.name}: {point.percentage:.1f} %'
-                        }
-                    }
-
-                },
-
-                tooltip: {
-                    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-                }
-            });
-        </script>
-```
 
 ---
 ## Front-End
@@ -135,7 +97,7 @@ Separation using TempData
 
 
 
-### API`s
+### APIs
 
 Google Maps
 ![Presentation Project](/UML/Google Maps.png)
@@ -167,6 +129,46 @@ Weather
     <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');</script>
 
 ```
+
+### Statistics
+```scala
+ <Script>
+ Highcharts.setOptions(Highcharts.theme);
+
+            Highcharts.chart('container2', {
+                data: {
+                    table: 'datatable2'
+                },
+                colors: ['#2b908f', '#90ee7e', '#f45b5b', '#7798BF', '#aaeeee', '#ff0066',
+                    '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
+                chart: {
+                    type: 'pie'
+                },
+
+                title: {
+                    text: 'Deals Statistics'
+                },
+                subtitle: {
+                    text: 'By Property Name'
+                },
+                plotOptions: {
+                    series: {
+                        dataLabels: {
+                            enabled: true,
+                            format: '{point.name}: {point.percentage:.1f} %'
+                        }
+                    }
+
+                },
+
+                tooltip: {
+                    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+                }
+            });
+        </script>
+```
+
 
 
 ---
