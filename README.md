@@ -4,8 +4,8 @@
 ![Presentation Project](/UML/MainPage.png)
 
 ---
-## Back-End
-### Implements
+# Back-End
+## Implements
 C# | Javascript | Entity Framework | .NET | MVC
 
 ### Models & Controllers
@@ -41,8 +41,8 @@ JOIN
 ```
 
 ---
-## Front-End
-### Implements
+# Front-End
+## Implements
 HTML\CSS | Bootsrap | jQuery | 
 
 ### HTML5
