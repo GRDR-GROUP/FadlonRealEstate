@@ -15,69 +15,71 @@
         <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Righteous&display=swap" rel="stylesheet" />"
     </head>
 
-<body>
-    <h2 style="margin-top:7rem; color:white;">Deals</h2>
+    <body>
+        <h2 style="margin-top:7rem; color:white;">Deals</h2>
 
-    <form id="formSearch" method="post">
-        <div class="row" id="SearchBox">
-            <div class="col-md-2"> Customer Name</div>
-            <div class="col-md-2"> <input type="text" id="name" name="name" style="color:black;"/></div>
-            <div class="col-md-1">  </div>
-        </div>
+        <form id="formSearch" method="post">
+            <div class="row" id="SearchBox">
+                <div class="col-md-2"> Customer Name</div>
+                <div class="col-md-2"> <input type="text" id="name" name="name" style="color:black;" /></div>
+                <div class="col-md-1">  </div>
+            </div>
 
-        <div class="row" id="SearchBox">
-            <div class="col-md-2"> Property type</div>
-            <div class="col-md-2"> <input type="text" id="type" name="type"  style="color:black;" /></div>
-            <div class="col-md-1"> <input type="submit" id="submitsearch" value="Search" style="color:black;" /></div>
-        </div>
-        <div class="row" id="SearchBox">
-            <div class="col-md-2"> Deal ID</div>
-            <div class="col-md-2"> <input type="text" id="deal" name="deal"  style="color:black;" /></div>
-        </div>
-    </form>
+            <div class="row" id="SearchBox">
+                <div class="col-md-2"> Property type</div>
+                <div class="col-md-2"> <input type="text" id="type" name="type" style="color:black;" /></div>
+                <div class="col-md-1"> <input type="submit" id="submitsearch" value="Search" style="color:black;" /></div>
+            </div>
+            <div class="row" id="SearchBox">
+                <div class="col-md-2"> Deal ID</div>
+                <div class="col-md-2"> <input type="text" id="deal" name="deal" style="color:black;" /></div>
+            </div>
+        </form>
 
-    <br />
-    <button>
-        @Html.ActionLink("Joining Deals & Properties", "Join")
-    </button>
+        <br />
+        <button>
+            @Html.ActionLink("Joining Deals & Properties", "Join")
+        </button>
 
-    <br />
-    <hr />
-    <br />
-
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Customer.CustomerFirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Property.PropertyName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Active)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+        <br />
+        <hr />
+    
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table" style="background-color:black;">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Customer.CustomerFirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Property.PropertyName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Active)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.DealID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.DealID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.DealID })
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Customer.CustomerFirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Property.PropertyName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Active)
+                </th>
+                <th></th>
             </tr>
-        }
 
-    </table>
-</body>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer.CustomerFirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Property.PropertyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Active)
+                    </td>
+                    <td style="background-color:black; width:15rem;">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.DealID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.DealID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.DealID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </body>

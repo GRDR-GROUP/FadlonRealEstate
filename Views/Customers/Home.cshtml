@@ -46,7 +46,7 @@
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
-    <table class="table">
+    <table class="table" style="background-color:black;">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.CustomerFirstName)
@@ -90,7 +90,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Age)
                 </td>
-                <td>
+                <td style="background-color:black; width:15rem;">
                     @Html.ActionLink("Edit", "Edit", new { id = item.CustomerID }) |
                     @Html.ActionLink("Details", "Details", new { id = item.CustomerID }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.CustomerID })
