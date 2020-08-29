@@ -15,6 +15,9 @@
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
+            <ul class="nav navbar-nav navbar-static-top">
+                <img id="icon" src="~/Content/Resources/Fadlon.png" style="margin-top:10px;margin-right:7px; width:30px; height:30px;">
+            </ul>
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -31,16 +34,15 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
 
                     <li>@Html.ActionLink("Gallery", "Gallery", "Properties")</li>
-                    <li>@Html.ActionLink("Deals", "Home", "Deals")</li>
+                    <li>@Html.ActionLink("Statistics", "Statistics", "Deals")</li>
 
                     @if (TempData["Role"] != null)
                     {
                         if (TempData["Role"].Equals("Admin"))
                         {
-                            <li>@Html.ActionLink("Brokers", "Home", "Brokers")</li>
                             <li>@Html.ActionLink("Customers", "Home", "Customers")</li>
+                            <li>@Html.ActionLink("Deals", "Home", "Deals")</li>
                             <li>@Html.ActionLink("Properties", "Home", "Properties")</li>
-                            <li>@Html.ActionLink("Statistics", "Statistics", "Deals")</li>
                         }
                         TempData.Keep();
                     }
@@ -51,7 +53,8 @@
                         <li>@Html.ActionLink("Log out", "Logout", "Home")</li>
                         if (TempData["Role"].ToString().Equals("Admin"))
                         {
-                            <li style="margin-top:15px; margin-right:5px;"> @TempData["name"].ToString() </li><img id="usr" src="~/Content/Resources/Team/Gal.jpeg" style="margin-top:1rem; width:30px; height:30px;" class="profile-image img-circle"> 
+                            <li style="margin-top:15px; margin-right:5px;"> @TempData["name"].ToString() </li>
+                            <img id="usr" src="~/Content/Resources/Team/Gal.jpeg" style="margin-top:10px; width:30px; height:30px;" class="profile-image img-circle">
                         }
                         else
                         {
