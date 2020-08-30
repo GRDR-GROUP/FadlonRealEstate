@@ -256,7 +256,7 @@
     <Content Include="Views\Deals\Statistics.cshtml" />
     <Content Include="Views\Deals\Home.cshtml" />
     <Content Include="Views\Properties\Index.cshtml" />
-    <Content Include="Views\Deals\Join.cshtml" />
+    <Content Include="Views\Customers\Properties.cshtml" />
     <Content Include="Views\Properties\Home.cshtml" />
     <Content Include="Views\Properties\Group.cshtml" />
     <Content Include="Views\Brokers\Home.cshtml" />

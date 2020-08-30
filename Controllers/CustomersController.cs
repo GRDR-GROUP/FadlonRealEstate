@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -142,5 +143,83 @@ namespace FadlonRealEstate.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult Properties()
+        {
+            if (TempData["name"] != null)
+            {
+                String CustomerName = TempData["name"].ToString();
+                TempData.Keep();
+
+                var deals = (from bo in db.Customers
+                             join lo in db.Deals
+                             on bo.CustomerID equals lo.CustomerID
+                             where bo.CustomerFirstName.StartsWith(CustomerName)
+                             select lo);
+
+
+                var Asset = (from bo in db.Properties
+                             join lo in deals
+                             on bo.PropertyID equals lo.PropertyID
+                             where bo.PropertyID == lo.PropertyID
+                             select new { assetName = bo.PropertyName, type = bo.PropertyType });
+
+
+                ICollection<Asset> list = new Collection<Asset>();
+
+                foreach (var v in Asset)
+                {
+                    list.Add(new Asset(Asset.Count(), v.assetName, v.type));
+
+                }
+
+                ViewBag.data = list;
+                ICollection<Stat> pList = new Collection<Stat>();
+
+                var Asset2 = (from bo in db.Properties
+                              join lo in deals
+                              on bo.PropertyID equals lo.PropertyID
+                              where bo.PropertyID == lo.PropertyID
+                              group bo by bo.PropertyType into j
+                              select j);
+
+                foreach (var v in Asset2)
+                {
+                    pList.Add(new Stat(v.Key, v.Count()));
+
+                }
+
+                int max = 0;
+                foreach (var c in pList)
+                {
+                    if (c.Values > max)
+                    {
+                        max = c.Values;
+                        ViewBag.type = c.Key;
+                    }
+                }
+                TempData.Keep();
+                return View();
+            }
+
+            return RedirectToAction("Index");
+        }
+
+    }
+
+     public class Asset
+    {
+        int num;
+        public string assetName;
+        public string assetType;
+
+        public Asset() { }
+        public Asset(int num, string assetName, string assetType)
+        {
+            this.num = num;
+            this.assetName = assetName;
+            this.assetType = assetType;
+        }
     }
 }
+

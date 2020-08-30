@@ -1,0 +1,78 @@
+﻿@model IEnumerable<FadlonRealEstate.Models.Property>
+@{
+    ViewBag.Title = "MyProperties";
+}
+@using FadlonRealEstate.Controllers
+@using FadlonRealEstate.Models
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/Style/PropertiesStyle/Gallery.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+</head>
+
+<body>
+    <h1 style="margin-top:7rem; color:white;">Wellcome @TempData["name"] !</h1>
+    <h2>Your Properties</h2>
+
+
+    <table id="table" class="table" style="background-color:black;">
+        <tr>
+            <th>
+                Asset Name
+            </th>
+            <th>
+                Asset Type
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var v in ViewBag.data as ICollection<Asset>)
+        {
+            <tr>
+                <td>
+                    @v.assetName
+                </td>
+                <td>
+                    @v.assetType
+                </td>
+
+
+            </tr>
+        }
+
+    </table>
+
+
+    <h3>@ViewBag.Type - THE BEST PROPERTY FOR YOU!</h3>
+    @if (@ViewBag.Type == "Villa")
+    {
+        <img src="~/Content/images/3.jpg" alt="3" class="w3-hover-opacity">
+    }
+
+    else if (@ViewBag.Type == "Apartment")
+    {
+        <img src="~/Content/images/13.jpg" alt="13" class="w3-hover-opacity">
+    }
+
+    else if (@ViewBag.Type == "Commercial")
+    {
+        <img src="~/Content/images/14.jpg" alt="14" class="w3-hover-opacity">
+    }
+
+    else if (@ViewBag.Type == "Office")
+    {
+        <img src="~/Content/images/15.jpg" alt="15" class="w3-hover-opacity">
+    }
+</body>
+
+
+
+
+
+
+
+
+

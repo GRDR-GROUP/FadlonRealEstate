@@ -58,7 +58,19 @@
                         }
                         else
                         {
-                            <li style="margin-top:15px; margin-right:5px;"> @TempData["name"].ToString() </li>
+                            <li>@Html.ActionLink(@TempData["name"].ToString(), "Properties", "Customers")</li>
+                            if (TempData["name"].ToString().Equals("Roey"))
+                            {
+                                <img id="usr" src="~/Content/Resources/Team/miller.jpeg" style="margin-top:10px; width:30px; height:30px;" class="profile-image img-circle">
+                            }
+                            else if (TempData["name"].ToString().Equals("Dorel"))
+                            {
+                                <img id="usr" src="~/Content/Resources/Team/dorel.jpeg" style="margin-top:10px; width:30px; height:30px;" class="profile-image img-circle">
+                            }
+                            else if (TempData["name"].ToString().Equals("Ron"))
+                            {
+                                <img id="usr" src="~/Content/Resources/Team/ron.jpeg" style="margin-top:10px; width:30px; height:30px;" class="profile-image img-circle">
+                            }
                         }
                         TempData.Keep();
                     }
