@@ -1,4 +1,10 @@
 ﻿
+html {
+    font-family: 'Farro', sans-serif;
+    font-size: 10px;
+    color: #333;
+}
+
 .product-info {
     position: center;
     margin-top: 0rem;
@@ -15,11 +21,9 @@
 
 
 #photo {
-    width: 20%;
-    position: center;
-    margin-bottom: 0rem;
-    margin-top: 20rem;
-    grid-area: span;
+    width: 45%;
+    position: absolute;
+    top: 50%;
     left: 0rem;
     transform: translateY(-50%);
     box-shadow: 2px 1.5rem 1.5rem rgba(2, 1, 1, 0.3);
@@ -27,27 +31,45 @@
     -webkit-border-radius: 22px;
 }
 
+.tone {
+    height: 100vh;
+    flex: 1;
+    position: relative;
+}
 
-    .product-info h1 {
-        position: center;
-        margin-bottom: 20rem;
-        margin-top: 0rem;
-        font-size: 4rem;
-        font-family: 'Abril Fatface', cursive;
-        letter-spacing: 3px;
-        margin-right: -3px;
-        font-weight: bold;
-        margin-bottom: 1rem;
-        text-align: center;
+
+    .tone img {
+        width: 45%;
+        position: absolute;
+        top: 50%;
+        left: 0rem;
+        transform: translateY(-50%);
+        box-shadow: 2px 1.5rem 1.5rem rgba(2, 1, 1, 0.3);
+        -moz-border-radius: 22px;
+        -webkit-border-radius: 22px;
     }
 
 
-    .product-info p {
-        position: center;
-        font-family: 'Abril Fatface', cursive;
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
+.product-info h1 {
+    position: center;
+    margin-bottom: 20rem;
+    margin-top: 0rem;
+    font-size: 4rem;
+    font-family: 'Farro', sans-serif;
+    letter-spacing: 3px;
+    margin-right: -3px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+
+.product-info p {
+    position: center;
+    font-family: 'Farro', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
 
 
 a {
@@ -58,6 +80,7 @@ a {
 
 .vid {
     margin-top: 15rem;
+    margin-left:40rem;
     position:center;
 }
 
