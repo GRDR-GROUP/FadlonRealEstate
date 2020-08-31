@@ -14,9 +14,17 @@
 </head>
 
 <body>
-    <h1 style="margin-top:7rem; color:white;">Welcome @TempData["name"] !</h1>
-    <h2>Your Properties</h2>
 
+    <div class="multi-column" style="column-count: 2; column-gap: 550px; column-rule-width: 1px; height:16rem;">
+        <div>
+            <h1 style="margin-top:7rem; color:white;">Welcome @TempData["name"]!</h1>
+            <h2>Your Properties</h2>
+        </div>
+        <aside onload="draw();" data-gr-c-s-loaded="true">
+            <iframe class="live-sample-frame sample-code-frame" frameborder="0" height="160" id="frame_Lines" src="https://mdn.mozillademos.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes$samples/Lines?revision=1638251" width="160" style="margin-top: 8rem;margin-left:10rem;"></iframe>
+            <canvas id="canvas" width="10" height="10"></canvas>
+        </aside>
+    </div>
 
     <table id="table" class="table" style="background-color:black;">
         <tr>
@@ -43,12 +51,9 @@
 
     </table>
 
-
-
     <h3>The BEST Property for you is - @ViewBag.Type ! </h3>
-
     <div class="w3-row-padding">
-        @foreach(var item in Model.Where(d => d.Customer.CustomerFirstName.Equals(@TempData["name"]) && d.Property.PropertyType.Equals((@ViewBag.Type))))
+        @foreach (var item in Model.Where(d => d.Customer.CustomerFirstName.Equals(@TempData["name"]) && d.Property.PropertyType.Equals((@ViewBag.Type))))
         {
             <div class="w3-third w3-container w3-margin-bottom">
                 <img id="@item.Property.Stock" src="~/Content/Resources/feature/" style="width: 357px; height: 250px;" class="w3-hover-opacity">
@@ -65,6 +70,31 @@
             var num = document.getElementsByClassName('w3-hover-opacity')[i].getAttribute('id');
             document.getElementsByClassName('w3-hover-opacity')[i].src += num + ".jpg";
         }
+    </script>
+
+    <script>
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+
+                // Filled triangle
+                ctx.beginPath();
+                ctx.moveTo(25, 25);
+                ctx.lineTo(105, 25);
+                ctx.lineTo(25, 105);
+                ctx.fill();
+
+                // Stroked triangle
+                ctx.beginPath();
+                ctx.moveTo(125, 125);
+                ctx.lineTo(125, 45);
+                ctx.lineTo(45, 125);
+                ctx.closePath();
+                ctx.stroke();
+            }
+        }
+
     </script>
 </body>
 

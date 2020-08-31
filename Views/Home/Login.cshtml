@@ -7,6 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/Content/Style/HomeStyle/Login.css">
+    <script src="jquery-1.11.1.min.js"></script>
 </head>
 
 <body>
@@ -25,4 +26,39 @@
             </form>
         </div>
     </div>
+
+    <div id="fb-root">
+    </div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+            (document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div id="fb-root"></div>
+    <script src="https://connect.facebook.net/en_US/sdk.js" nonce="kvhXltik"></script>
+
+    <script nonce="kvhXltik">
+            document.getElementById("submitsearch").onclick = function () { myFunction() };
+            function myFunction() {
+                FB.init({
+                appId: 2382091785433635,
+                status: true,
+                xfbml: true,
+                version: 'v2.9'
+            });
+            FB.AppEvents.logPageView();
+            FB.ui({
+                method: 'share',
+                href: 'https://www.facebook.com/permalink.php?story_fbid=124657625738159&id=124652649071990',
+            }, function (response) { });
+            }
+    </script>
+
 </body>
