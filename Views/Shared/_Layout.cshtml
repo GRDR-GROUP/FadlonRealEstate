@@ -40,8 +40,8 @@
                     {
                         if (TempData["Role"].Equals("Admin"))
                         {
-                            <li>@Html.ActionLink("Customers", "Home", "Customers")</li>
-                            <li>@Html.ActionLink("Deals", "Home", "Deals")</li>
+                            <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
+                            <li>@Html.ActionLink("Deals", "Index", "Deals")</li>
                             <li>@Html.ActionLink("Properties", "Home", "Properties")</li>
                         }
                         TempData.Keep();
@@ -53,12 +53,12 @@
                         <li>@Html.ActionLink("Log out", "Logout", "Home")</li>
                         if (TempData["Role"].ToString().Equals("Admin"))
                         {
-                            <li style="margin-top:15px; margin-right:5px;"> @TempData["name"].ToString() </li>
+                            <li>@Html.ActionLink(@TempData["name"].ToString(), "Index", "Brokers")</li>
                             <img id="usr" src="~/Content/Resources/Team/Gal.jpeg" style="margin-top:10px; width:30px; height:30px;" class="profile-image img-circle">
                         }
                         else
                         {
-                            <li>@Html.ActionLink(@TempData["name"].ToString(), "Properties", "Customers")</li>
+                            <li>@Html.ActionLink(@TempData["name"].ToString(), "Account", "Customers")</li>
                             if (TempData["name"].ToString().Equals("Roey"))
                             {
                                 <img id="usr" src="~/Content/Resources/Team/miller.jpeg" style="margin-top:10px; width:30px; height:30px;" class="profile-image img-circle">

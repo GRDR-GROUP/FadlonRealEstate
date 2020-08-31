@@ -16,17 +16,14 @@ namespace FadlonRealEstate.Controllers
     {
         private OfficeDB db = new OfficeDB();
 
-        [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.name = "";
             return View(db.Properties.ToList());
         }
 
         [HttpPost]
         public ActionResult Index(string name)
         {
-            ViewBag.name = name;
             var Property = db.Properties.ToList().Where(p => p.PropertyName.StartsWith(name));
             return View(Property.ToList());
         }
@@ -144,7 +141,13 @@ namespace FadlonRealEstate.Controllers
         [HttpPost]
         public ActionResult Home(string name, string type, int? price)
         {
-            var properties = db.Properties.ToList().Where(p => (p.PropertyName.StartsWith(name) && p.PropertyType.StartsWith(type) && p.price.Equals(price)));
+            var properties = db.Properties.ToList().Where(p => (p.PropertyName.StartsWith(name) && p.PropertyType.StartsWith(type)));
+            if (price != null)
+            {
+                var b = properties.ToList().Where(p => p.price.Equals(price));
+                return View(b.ToList());
+            }
+
             return View(properties.ToList());
         }
 
@@ -158,12 +161,10 @@ namespace FadlonRealEstate.Controllers
         public ActionResult Gallery(string name, string type, string city, string feat,int? price)
         {
             var properties = db.Properties.ToList().Where(p => (p.city.StartsWith(city) && p.PropertyType.StartsWith(type) && p.Feautres.StartsWith(feat)));
-            //var properties = db.Properties.ToList().Where(p => (p.PropertyName.StartsWith(name)));
             if (price != null)
             {
-                var b = properties.ToList().Where(p => p.price.Equals(price));
+                var b = properties.ToList().Where(p => p.price < price);
                 return View(b.ToList());
-
             }
 
             return View(properties.ToList());

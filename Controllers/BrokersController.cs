@@ -22,19 +22,6 @@ namespace FadlonRealEstate.Controllers
             return View(db.Brokers.ToList());
         }
 
-        [HttpGet]
-        public ActionResult Home()
-        {
-            return View(db.Brokers.ToList());
-        }
-
-        [HttpPost]
-        public ActionResult Home(string name, string pass)
-        {
-            var Brokers = db.Brokers.ToList().Where(p => (p.BrokerName.StartsWith(name) && p.BrokerPassword.StartsWith(pass)));
-            return View(Brokers.ToList());
-        }
-
         // GET: Brokers/Details/5
         public ActionResult Details(int? id)
         {

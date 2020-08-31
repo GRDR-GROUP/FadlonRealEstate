@@ -22,14 +22,8 @@ namespace FadlonRealEstate.Controllers
             return View(db.Customers.ToList());
         }
 
-        [HttpGet]
-        public ActionResult Home()
-        {
-            return View(db.Customers.ToList());
-        }
-
         [HttpPost]
-        public ActionResult Home(string fname, string lname, string mail, int? phone)
+        public ActionResult Index(string fname, string lname, string mail, int? phone)
         {
            var Customers = db.Customers.ToList().Where(p => (p.CustomerFirstName.StartsWith(fname) && p.CustomerLastName.StartsWith(lname) && p.Email.StartsWith(mail)));
             if (phone != null)
@@ -144,7 +138,7 @@ namespace FadlonRealEstate.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult Properties()
+        public ActionResult Account()
         {
             if (TempData["name"] != null)
             {
@@ -186,7 +180,6 @@ namespace FadlonRealEstate.Controllers
                 foreach (var v in Asset2)
                 {
                     pList.Add(new Stat(v.Key, v.Count()));
-
                 }
 
                 int max = 0;
@@ -199,12 +192,11 @@ namespace FadlonRealEstate.Controllers
                     }
                 }
                 TempData.Keep();
-                return View();
+                return View(db.Deals.ToList());
             }
 
             return RedirectToAction("Index");
         }
-
     }
 
      public class Asset

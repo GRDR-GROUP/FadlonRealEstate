@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Deals";
 }
-
+@using FadlonRealEstate.Models
 
 <head>
     <meta charset="utf-8" />
@@ -12,12 +12,33 @@
 </head>
 
 <body>
-    <h2 style="color:white;margin-top:10rem;margin-bottom:5rem;position:center;text-shadow: 2px 2px black;">Index</h2>
+    <h2 style="margin-top:7rem; color:white;">Deals</h2>
+
+    <form id="formSearch" method="post">
+        <div class="row" id="SearchBox">
+            <div class="col-md-2"> Customer Name</div>
+            <div class="col-md-2"> <input type="text" id="name" name="name" style="color:black;" /></div>
+            <div class="col-md-1">  </div>
+        </div>
+
+        <div class="row" id="SearchBox">
+            <div class="col-md-2"> Property type</div>
+            <div class="col-md-2"> <input type="text" id="type" name="type" style="color:black;" /></div>
+            <div class="col-md-1"> <input type="submit" id="submitsearch" value="Search" style="color:black;" /></div>
+        </div>
+        <div class="row" id="SearchBox">
+            <div class="col-md-2"> Deal ID</div>
+            <div class="col-md-2"> <input type="text" id="deal" name="deal" style="color:black;" /></div>
+        </div>
+    </form>
+
+    <br />
+    <hr />
 
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
-    <table class="table">
+    <table class="table" style="background-color:black;">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Customer.CustomerFirstName)
@@ -43,7 +64,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Active)
                 </td>
-                <td>
+                <td style="background-color:black; width:15rem;">
                     @Html.ActionLink("Edit", "Edit", new { id = item.DealID }) |
                     @Html.ActionLink("Details", "Details", new { id = item.DealID }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.DealID })
@@ -52,5 +73,4 @@
         }
 
     </table>
-
 </body>

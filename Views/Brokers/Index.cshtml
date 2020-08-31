@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<FadlonRealEstate.Models.Broker>
-
 @{
     ViewBag.Title = "Brokers";
 }
@@ -15,28 +14,31 @@
 </head>
 
 <body>
-    <h2 style="color:white;margin-top:5rem;margin-bottom:5rem;position:center;text-shadow: 2px 2px black;">Index</h2>
+    <h1 style="margin-top:7rem; color:white;">Welcome @TempData["name"] !</h1>
+    <h2>The Brokers</h2>
 
-    <form id="formSearch" method="post">
-        <div class="row" id="SearchBox">
-            <div class="col-md-2"> Broker Name</div>
-            <div class="col-md-2"> <input type="text" id="name" name="name" style="color:black;" /></div>
-            <div class="col-md-1">  </div>
-        </div>
+    <div style="margin-top:3rem;">
+        <form id="formSearch" method="post">
+            <div class="row" id="SearchBox">
+                <div class="col-md-2"> Broker Name</div>
+                <div class="col-md-2"> <input type="text" id="name" name="name" style="color:black;" /></div>
+                <div class="col-md-1">  </div>
+            </div>
 
-        <div class="row" id="SearchBox">
-            <div class="col-md-2">  Broker Password</div>
-            <div class="col-md-2"> <input type="text" id="pass" name="pass" style="color:black;" /></div>
-            <div class="col-md-1"> <input type="submit" id="submitsearch" value="Search" style="color:black;" /></div>
-        </div>
-    </form>
+            <div class="row" id="SearchBox">
+                <div class="col-md-2">  Broker Password</div>
+                <div class="col-md-2"> <input type="text" id="pass" name="pass" style="color:black;" /></div>
+                <div class="col-md-1"> <input type="submit" id="submitsearch" value="Search" style="color:black;" /></div>
+            </div>
+        </form>
+    </div>
 
     <hr />
 
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
-    <table class="table">
+    <table class="table" style="background-color:black;">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.BrokerName)

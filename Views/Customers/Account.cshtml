@@ -1,0 +1,78 @@
+﻿@model IEnumerable<FadlonRealEstate.Models.Deal>
+@{
+    ViewBag.Title = @TempData["name"];
+}
+@using FadlonRealEstate.Controllers
+@using FadlonRealEstate.Models
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/Style/PropertiesStyle/Gallery.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+</head>
+
+<body>
+    <h1 style="margin-top:7rem; color:white;">Welcome @TempData["name"] !</h1>
+    <h2>Your Properties</h2>
+
+
+    <table id="table" class="table" style="background-color:black;">
+        <tr>
+            <th>
+                Asset Name
+            </th>
+            <th>
+                Asset Type
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var v in ViewBag.data as ICollection<Asset>)
+        {
+            <tr>
+                <td>
+                    @v.assetName
+                </td>
+                <td>
+                    @v.assetType
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+
+    <h3>The BEST Property for you is - @ViewBag.Type ! </h3>
+
+    <div class="w3-row-padding">
+        @foreach(var item in Model.Where(d => d.Customer.CustomerFirstName.Equals(@TempData["name"]) && d.Property.PropertyType.Equals((@ViewBag.Type))))
+        {
+            <div class="w3-third w3-container w3-margin-bottom">
+                <img id="@item.Property.Stock" src="~/Content/Resources/feature/" style="width: 357px; height: 250px;" class="w3-hover-opacity">
+                <div class="w3-container w3-black">
+                    <h5><b>@Html.DisplayFor(modelItem => item.Property.PropertyName) - @Html.DisplayFor(modelItem => item.Property.PropertyType) in @Html.DisplayFor(modelItem => item.Property.city)</b></h5>
+                    <p><b>@Html.DisplayFor(modelItem => item.Property.NumofRooms) Rooms & @Html.DisplayFor(modelItem => item.Property.Feautres) </b></p>
+                </div>
+            </div>
+        }
+    </div>
+
+    <script>
+        for (var i = 0; i < document.getElementsByClassName('w3-hover-opacity').length; i++) {
+            var num = document.getElementsByClassName('w3-hover-opacity')[i].getAttribute('id');
+            document.getElementsByClassName('w3-hover-opacity')[i].src += num + ".jpg";
+        }
+    </script>
+</body>
+
+
+
+
+
+
+
+
+
