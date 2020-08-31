@@ -6,14 +6,14 @@
 ---
 # Back-End
 ## Implements
-C# | Javascript | Entity Framework | .NET | MVC
+C# | Javascript | jQuery | Entity Framework | .NET | MVC
 
 ### Models & Controllers
-Customers | Brokers | Deals | Properties | 
+Customers | Brokers | Deals | Properties 
 
 ### SQL
 
-GROUP BY
+#### GROUP BY
 
 ```scala
  public ActionResult Group()
@@ -25,7 +25,7 @@ GROUP BY
         }
 ```
 
-JOIN
+#### JOIN
 
 ```scala
  public ActionResult Join()
@@ -40,32 +40,84 @@ JOIN
        }
 ```
 
+
+### jQuery & Ajax
+```scala
+<script>
+        function cycleImages() {
+            var $active = $('#cycler .active');
+            var $next = ($active.next().length > 0) ? $active.next() : $('#cycler img:first');
+            $next.css('z-index', 2);//move the next image up the pile
+            $active.fadeOut(1500, function () {//fade out the top image
+                $active.css('z-index', 1).show().removeClass('active');//reset the z-index and unhide the image
+                $next.css('z-index', 3).addClass('active');//make the next image the top one
+            });
+        }
+
+        $(document).ready(function () {
+            // run every 7s
+            setInterval('cycleImages()', 3000);
+        })
+    </script>
+```
+
+```scala
+    <script>
+        $(document).ready(function () {
+            $('#photo').fadeToggle(1000).fadeToggle(1300);
+        });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+```
+
 ---
 # Front-End
 ## Implements
-HTML\CSS | Bootsrap | jQuery | 
+HTML\CSS | Bootsrap  
 
 ### HTML5
-VIDEO
+#### VIDEO
 ```scala
 <div class="vid">
         <iframe frameborder="1" scrolling="yes" marginheight="0" marginwidth="0" width="1135" height="500" type="text/html" src="https://www.youtube.com/embed/rzSUKaz1lHY?autoplay=1&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&vq=hd1080"></iframe>
     </div>
 ```
-CANVAS
+#### CANVAS
 ```scala
- <div class="canvas">
-            <canvas id="myCanvas"></canvas>
-            <img id="scream" width="0" height="0" src="~/Content/Resources/Imeges/service.jpg" alt="The Scream">
-</div>
- <script>window.onload = function () {
-    var c = document.getElementById("myCanvas");
-    var ctx = c.getContext("2d");
-    var img = document.getElementById("scream");
-    ctx.drawImage(img, 3, 3, 295, 150);}
-</script>
+function draw() {
+  var canvas = document.getElementById('canvas');
+  if (canvas.getContext) {
+    var ctx = canvas.getContext('2d');
+
+    // Filled triangle
+    ctx.beginPath();
+    ctx.moveTo(25, 25);
+    ctx.lineTo(105, 25);
+    ctx.lineTo(25, 105);
+    ctx.fill();
+
+    // Stroked triangle
+    ctx.beginPath();
+    ctx.moveTo(125, 125);
+    ctx.lineTo(125, 45);
+    ctx.lineTo(45, 125);
+    ctx.closePath();
+    ctx.stroke();
+  }
+}
 ```
 
+```scala
+ <script>
+        window.onload = function () {
+                    var c = document.getElementById("myCanvas");
+                    var ctx = c.getContext("2d");
+                    var img = document.getElementById("admin");
+                    ctx.drawImage(img, 10, 10,150,150);
+                }
+    </script>
+```
 ### CSS3
 Text-shadow | Transition | Multiple-columns | Font-face | Border-radius
 
@@ -99,7 +151,7 @@ Separation using TempData
 
 ### APIs
 
-Google Maps
+#### Google Maps
 
 ![Presentation Project](/UML/GoogleMaps.png)
 
@@ -109,7 +161,7 @@ Google Maps
   </div>
 ```
 
-Facebook
+#### Facebook
 
 ![Presentation Project](/UML/Facebook.png)
 ```scala
@@ -122,9 +174,32 @@ Facebook
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0"></script>
 
 ```
+
+```scala
+ <div id="fb-root"></div>
+    <script src="https://connect.facebook.net/en_US/sdk.js" nonce="kvhXltik"></script>
+
+    <script nonce="kvhXltik">
+            document.getElementById("submitsearch").onclick = function () { myFunction() };
+            function myFunction() {
+                FB.init({
+                appId: 2382091785433635,
+                status: true,
+                xfbml: true,
+                version: 'v2.9'
+            });
+            FB.AppEvents.logPageView();
+            FB.ui({
+                method: 'share',
+                href: 'https://www.facebook.com/permalink.php?story_fbid=124657625738159&id=124652649071990',
+            }, function (response) { });
+            }
+    </script>
+```
+
 ### Web Service
 
-Weather
+#### Weather
 
 ![Presentation Project](/UML/Weather.png)
 ```scala
