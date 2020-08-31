@@ -160,6 +160,9 @@ Separation using TempData
         <div class="gmap_canvas"><iframe width="1140" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=%D7%A8%D7%95%D7%98%D7%A9%D7%99%D7%9C%D7%93%2032%20%D7%91%D7%AA%20%D7%99%D7%9D&t=k&z=15&ie=UTF8&iwloc=&output=embed" frameborder="1" scrolling="yes" marginheight="10" marginwidth="0"></iframe></div>
   </div>
 ```
+#### DB Connected Map
+![Presentation Project](/UML/Gallery.png)
+
 
 #### Facebook
 
@@ -175,6 +178,7 @@ Separation using TempData
 
 ```
 
+![Presentation Project](/UML/Facebook_share.png)
 ```scala
  <div id="fb-root"></div>
     <script src="https://connect.facebook.net/en_US/sdk.js" nonce="kvhXltik"></script>
@@ -254,4 +258,5 @@ Separation using TempData
 * [Microsoft Visual Studio ](https://visualstudio.microsoft.com/) 
 
 ## Authors
+![Presentation Project](/UML/team.png)
 * **[Gal Jacobson](https://www.linkedin.com/in/jacobsongal/)** | **[Roey Miller](https://www.linkedin.com/in/roey-miller-046b68199/)** | **[ Dorel Fadlon ](https://www.linkedin.com/in/dorel-fadlon/)** | **[ Ron Fybish](https://www.linkedin.com/in/ron-fybish/)** 
