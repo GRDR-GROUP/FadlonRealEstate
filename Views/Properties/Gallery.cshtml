@@ -19,13 +19,12 @@
 
         <div class="mapouter">
             <div class="gmap_canvas">
-                <iframe width="1130" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=%D7%A8%D7%95%D7%98%D7%A9%D7%99%D7%9C%D7%93%2032%20%D7%91%D7%AA%20%D7%99%D7%9D&t=k&z=15&ie=UTF8&iwloc=&output=embed" frameborder="1" scrolling="yes" marginheight="10" marginwidth="0"></iframe>
+                <iframe  width="1130" height="300" id="gmap_canvas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d673839.7478792366!2d34.29848328009378!3d32.08366297037763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d15333e3cd2d5%3A0x65729b3152c4d1c2!2sCenter%20District!5e1!3m2!1sen!2sil!4v1598664011118!5m2!1sen!2sil" frameborder="1" scrolling="yes" marginheight="10" marginwidth="0"></iframe>
             </div>
         </div>
 
         <fieldset style="">
             <legend>Search Property</legend>
-            <!-- **** Location Search Form Area **** -->
             <div class="rehomes-search-form-area wow fadeInUp" data-wow-delay="200ms">
                 <div class="container">
                     <form action="#" method="post">
@@ -87,7 +86,9 @@
             @foreach (var item in Model)
             {
                 <div class="w3-third w3-container w3-margin-bottom">
-                    <a id="sumbit"> <img id="@item.Stock" src="~/Content/Resources/feature/" style="width: 357px; height: 250px;" class="w3-hover-opacity"> </a>
+                    <button id="button" data-name="@item.city.ToString()" class="button" >
+                        <img id="@item.Stock" src="~/Content/Resources/feature/" style="width: 357px; height: 250px;" class="w3-hover-opacity">
+                    </button>
                     <div class="w3-container w3-black">
                         <h5><b>@Html.DisplayFor(modelItem => item.PropertyName) - @Html.DisplayFor(modelItem => item.PropertyType) in @Html.DisplayFor(modelItem => item.city)</b></h5>
                         <p><b>@Html.DisplayFor(modelItem => item.NumofRooms) Rooms & @Html.DisplayFor(modelItem => item.Feautres) for @Html.DisplayFor(modelItem => item.price)$</b></p>
@@ -97,42 +98,40 @@
         </div>
 
         <script>
-            for (var i = 0; i < document.getElementsByTagName('img').length; i++) {
-                var num = document.getElementsByTagName('img')[i].getAttribute('id');
-                document.getElementsByTagName('img')[i].src += num + ".jpg";
+            for (var i = 0; i < document.getElementsByClassName('w3-hover-opacity').length; i++) {
+                var num = document.getElementsByClassName('w3-hover-opacity')[i].getAttribute('id');
+                document.getElementsByClassName('w3-hover-opacity')[i].src += num + ".jpg";
             }
         </script>
 
-        <script>
+        <script >
+            for (var i = 0; i < document.getElementsByClassName('button').length; i++) {
+                var button = document.getElementsByClassName('button');
+                button[i].onclick = city;
 
-            @foreach (var item in Model)
-            {
-                var city = item.city;
-            }
+                function city() {
+                    document.getElementById('gmap_canvas').src = "";
+                    var city = this.getAttribute('data-name');
 
-            function initialize() {
-                var mapDiv = document.getElementById('gmap_canvas');
-                var map;
-                var address = city;
-                var geocoder = new google.maps.Geocoder();
-                // Get LatLng information by name
-                geocoder.geocode({
-                    "address": address
-                }, function (results, status) {
-                    map = new google.maps.Map(mapDiv, {
-                        // Center map (but check status of geocoder)
-                        center: results[0].geometry.location,
-                        zoom: 8,
-                        mapTypeId: google.maps.MapTypeId.ROADMAP,
-                    })
-
-                });
+                    if (city === "Bat-Yam")
+                        document.getElementById('gmap_canvas').src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21073.68266893888!2d34.73040789904875!3d32.01332274737287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502b312412bb38b%3A0xb2961a65cc489c32!2sBat%20Yam!5e1!3m2!1sen!2sil!4v1598660513517!5m2!1sen!2sil";
+                    if (city === "Tel-Aviv")
+                        document.getElementById('gmap_canvas').src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d84226.0521254463!2d34.72720511046305!3d32.08791223235956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4ca6193b7c1f%3A0xc1fb72a2c0963f90!2sTel%20Aviv-Yafo!5e1!3m2!1sen!2sil!4v1598660171925!5m2!1sen!2sil";
+                    if (city === "Holon")
+                        document.getElementById('gmap_canvas').src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42147.34082896053!2d34.74618956690626!3d32.01337603938199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502b4bb0c33bf39%3A0xfbdd79640525e72d!2sHolon!5e1!3m2!1sen!2sil!4v1598660666035!5m2!1sen!2sil";
+                    if (city === "Rishon le Zion")
+                        document.getElementById('gmap_canvas').src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42164.92479466209!2d34.743367166584456!3d31.975121192515584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502b43827ab66ff%3A0x17bcc54a571a7ab8!2sRishon%20LeTsiyon!5e1!3m2!1sen!2sil!4v1598660737746!5m2!1sen!2sil";
+                    if (city === "Jaffa")
+                        document.getElementById('gmap_canvas').src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21066.941818393225!2d34.73974784911003!3d32.04262529677424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4cba171f02dd%3A0xcf0da271e00f643e!2sJaffa%2C%20Tel%20Aviv-Yafo!5e1!3m2!1sen!2sil!4v1598660787710!5m2!1sen!2sil";
+                }
             }
         </script>
-    </body>
 
-<style>
-    body,h2, h3, h4, h5, h6 {
-        font-family: "Raleway", sans-serif
-    }
-</style>
+  
+        </body>
+
+        <style>
+            body, h2, h3, h4, h5, h6 {
+                font-family: "Raleway", sans-serif
+            }
+        </style>

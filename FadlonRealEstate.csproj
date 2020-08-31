@@ -164,13 +164,9 @@
     <Content Include="Content\Resources\Team\Gal.jpeg" />
     <Content Include="Content\Resources\Team\miller.jpeg" />
     <Content Include="Content\Resources\Team\ron.jpeg" />
-    <Content Include="Content\Style\BrokersStyle\Home.css" />
     <Content Include="Content\Style\BrokersStyle\Index.css" />
-    <Content Include="Content\Style\CustomersStyle\Home.css" />
     <Content Include="Content\Style\CustomersStyle\Index.css" />
-    <Content Include="Content\Style\DealsStyle\Home.css" />
     <Content Include="Content\Style\DealsStyle\Statistics.css" />
-    <Content Include="Content\Style\DealsStyle\Join.css" />
     <Content Include="Content\Style\DealsStyle\Index.css" />
     <Content Include="Content\Style\HomeStyle\About.css" />
     <Content Include="Content\Style\HomeStyle\Contact.css" />
@@ -236,7 +232,6 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Properties\Gallery.cshtml" />
     <Content Include="Content\Resources\Team\linkedin.png" />
-    <Content Include="Content\Style\HomeStyle\Logout.css" />
     <Content Include="Content\Resources\feature\9.jpg" />
     <Content Include="Content\Resources\feature\4.jpg" />
     <Content Include="Content\Resources\feature\5.jpg" />
@@ -254,13 +249,10 @@
     <Content Include="Views\Properties\Details.cshtml" />
     <Content Include="Views\Properties\Edit.cshtml" />
     <Content Include="Views\Deals\Statistics.cshtml" />
-    <Content Include="Views\Deals\Home.cshtml" />
     <Content Include="Views\Properties\Index.cshtml" />
-    <Content Include="Views\Deals\Join.cshtml" />
+    <Content Include="Views\Customers\Account.cshtml" />
     <Content Include="Views\Properties\Home.cshtml" />
     <Content Include="Views\Properties\Group.cshtml" />
-    <Content Include="Views\Brokers\Home.cshtml" />
-    <Content Include="Views\Customers\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

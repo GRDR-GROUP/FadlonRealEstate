@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<FadlonRealEstate.Models.Broker>
-
 @{
     ViewBag.Title = "Brokers";
 }
@@ -15,28 +14,25 @@
 </head>
 
 <body>
-    <h2 style="color:white;margin-top:5rem;margin-bottom:5rem;position:center;text-shadow: 2px 2px black;">Index</h2>
-
-    <form id="formSearch" method="post">
-        <div class="row" id="SearchBox">
-            <div class="col-md-2"> Broker Name</div>
-            <div class="col-md-2"> <input type="text" id="name" name="name" style="color:black;" /></div>
-            <div class="col-md-1">  </div>
+    <div class="multi-column" style="column-count: 2;">
+        <div>
+            <h1 style="margin-top:7rem; color:white;">Welcome @TempData["name"]!</h1>
+            <h2>You Are The Main Administartor</h2>
+            <h2>All Office Brokers:</h2>
         </div>
-
-        <div class="row" id="SearchBox">
-            <div class="col-md-2">  Broker Password</div>
-            <div class="col-md-2"> <input type="text" id="pass" name="pass" style="color:black;" /></div>
-            <div class="col-md-1"> <input type="submit" id="submitsearch" value="Search" style="color:black;" /></div>
-        </div>
-    </form>
+        <aside>
+            <canvas id="myCanvas" width="150" height="150" style="margin-top:7rem; margin-left:40rem;">
+                <img id="admin" width="0" height="0" src="~/Content/Resources/Team/Gal.jpeg">
+            </canvas>
+        </aside>
+</div>
 
     <hr />
 
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
-    <table class="table">
+    <table class="table" style="background-color:black;">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.BrokerName)
@@ -65,4 +61,13 @@
         }
 
     </table>
+
+    <script>
+        window.onload = function () {
+                    var c = document.getElementById("myCanvas");
+                    var ctx = c.getContext("2d");
+                    var img = document.getElementById("admin");
+                    ctx.drawImage(img, 10, 10,150,150);
+                }
+    </script>
 </body>

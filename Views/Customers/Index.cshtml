@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<FadlonRealEstate.Models.Customer>
-
 @{
     ViewBag.Title = "Customers";
 }
 @using FadlonRealEstate.Models
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <h2 style="color:white;margin-top:5rem;margin-bottom:5rem;position:center;text-shadow: 2px 2px black;">Index</h2>
+    <h2 style="margin-top:7rem; color:white;">Customers</h2>
 
     <form id="formSearch" method="post">
         <div class="row" id="SearchBox">
@@ -46,7 +46,7 @@
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
-    <table class="table">
+    <table class="table" style="background-color:black;">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.CustomerFirstName)
@@ -90,7 +90,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Age)
                 </td>
-                <td>
+                <td style="background-color:black; width:15rem;">
                     @Html.ActionLink("Edit", "Edit", new { id = item.CustomerID }) |
                     @Html.ActionLink("Details", "Details", new { id = item.CustomerID }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.CustomerID })

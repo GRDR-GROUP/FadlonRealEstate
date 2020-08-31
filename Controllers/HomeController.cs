@@ -15,7 +15,6 @@ namespace FadlonRealEstate.Controllers
     {
         IDictionary<string, string> BrokersMap = new Dictionary<string, string>();
         IDictionary<string, string> CustomersMap = new Dictionary<string, string>();
-        public static string CustomerName = "";
         private OfficeDB db = new OfficeDB();
 
         public ActionResult Index()
@@ -75,7 +74,7 @@ namespace FadlonRealEstate.Controllers
 
         public ActionResult Logout()
         {
-            CustomerName = "";
+            TempData["name"] = null;
             TempData["Role"] = null;
             return RedirectToAction("Index");
         }
