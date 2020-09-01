@@ -41,7 +41,11 @@ namespace FadlonRealEstate.Controllers
         [HttpPost]
         public ActionResult Login(string name, string password)
         {
-            TempData["name"] = name.ToString();
+            if (name != null)
+            {
+                TempData["name"] = name.ToString();
+                TempData["img"] = "/Content/Resources/Team/" + name.ToString() + ".jpeg";
+            }
 
             foreach (Broker b in db.Brokers)
             {
@@ -51,6 +55,7 @@ namespace FadlonRealEstate.Controllers
             {
                 CustomersMap.Add(c.CustomerFirstName, c.Email);
             }
+
             if (BrokersMap.ContainsKey(name))
             {
                 if (BrokersMap[name].Equals(password))

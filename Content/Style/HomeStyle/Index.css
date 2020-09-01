@@ -5,7 +5,7 @@ html {
     color: #333;
 }
 
-.product-info {
+.office {
     position: center;
     margin-top: 0rem;
     margin-bottom: 20rem;
@@ -21,9 +21,11 @@ html {
 
 
 #photo {
-    width: 45%;
-    position: absolute;
-    top: 50%;
+    width: 20%;
+    position: center;
+    margin-bottom: 0rem;
+    margin-top: 20rem;
+    grid-area: span;
     left: 0rem;
     transform: translateY(-50%);
     box-shadow: 2px 1.5rem 1.5rem rgba(2, 1, 1, 0.3);
@@ -31,26 +33,7 @@ html {
     -webkit-border-radius: 22px;
 }
 
-.tone {
-    height: 100vh;
-    flex: 1;
-    position: relative;
-}
-
-
-    .tone img {
-        width: 45%;
-        position: absolute;
-        top: 50%;
-        left: 0rem;
-        transform: translateY(-50%);
-        box-shadow: 2px 1.5rem 1.5rem rgba(2, 1, 1, 0.3);
-        -moz-border-radius: 22px;
-        -webkit-border-radius: 22px;
-    }
-
-
-.product-info h1 {
+.office h1 {
     position: center;
     margin-bottom: 20rem;
     margin-top: 0rem;
@@ -64,7 +47,7 @@ html {
 }
 
 
-.product-info p {
+.office p {
     position: center;
     font-family: 'Farro', sans-serif;
     font-size: 2.5rem;
@@ -72,7 +55,7 @@ html {
 }
 
 
-a {
+.office a {
     text-decoration: none;
     color: inherit;
 }
@@ -80,7 +63,6 @@ a {
 
 .vid {
     margin-top: 15rem;
-    margin-left:40rem;
     position:center;
 }
 
@@ -120,9 +102,4 @@ a {
     text-align: right;
     height: 420px;
     width: 520px;
-}
-
-#gmap_canvas img {
-    max-width: none !important;
-    background: none !important
 }

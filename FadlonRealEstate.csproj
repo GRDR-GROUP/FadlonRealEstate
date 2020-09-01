@@ -160,10 +160,10 @@
     <Content Include="Content\Resources\Imeges\service.jpg" />
     <Content Include="Content\Resources\Imeges\three.jpg" />
     <Content Include="Content\Resources\Imeges\two.jpg" />
-    <Content Include="Content\Resources\Team\dorel.jpeg" />
-    <Content Include="Content\Resources\Team\Gal.jpeg" />
-    <Content Include="Content\Resources\Team\miller.jpeg" />
-    <Content Include="Content\Resources\Team\ron.jpeg" />
+    <Content Include="Content\Resources\Team\Dorel.jpeg" />
+    <Content Include="Content\Resources\Team\Gal Jacobson.jpeg" />
+    <Content Include="Content\Resources\Team\Roey.jpeg" />
+    <Content Include="Content\Resources\Team\Ron.jpeg" />
     <Content Include="Content\Style\BrokersStyle\Index.css" />
     <Content Include="Content\Style\CustomersStyle\Index.css" />
     <Content Include="Content\Style\DealsStyle\Statistics.css" />

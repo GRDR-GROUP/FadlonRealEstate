@@ -10,19 +10,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="~/Content/Style/PropertiesStyle/Gallery.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 </head>
 
 <body>
 
-    <div class="multi-column" style="column-count: 2; column-gap: 550px; column-rule-width: 1px; height:16rem;">
+    <div class="multi-column" style="column-count: 2;">
         <div>
             <h1 style="margin-top:7rem; color:white;">Welcome @TempData["name"]!</h1>
             <h2>Your Properties</h2>
         </div>
-        <aside onload="draw();" data-gr-c-s-loaded="true">
-            <iframe class="live-sample-frame sample-code-frame" frameborder="0" height="160" id="frame_Lines" src="https://mdn.mozillademos.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes$samples/Lines?revision=1638251" width="160" style="margin-top: 8rem;margin-left:10rem;"></iframe>
-            <canvas id="canvas" width="10" height="10"></canvas>
+        <aside>
+            <canvas id="myCanvas" width="150" height="150" style="margin-top:5rem; margin-left:27rem;">
+                <img id="admin" width="0" height="0" src="@TempData["img"].ToString()">
+            </canvas>
         </aside>
     </div>
 
@@ -73,28 +73,12 @@
     </script>
 
     <script>
-        function draw() {
-            var canvas = document.getElementById('canvas');
-            if (canvas.getContext) {
-                var ctx = canvas.getContext('2d');
-
-                // Filled triangle
-                ctx.beginPath();
-                ctx.moveTo(25, 25);
-                ctx.lineTo(105, 25);
-                ctx.lineTo(25, 105);
-                ctx.fill();
-
-                // Stroked triangle
-                ctx.beginPath();
-                ctx.moveTo(125, 125);
-                ctx.lineTo(125, 45);
-                ctx.lineTo(45, 125);
-                ctx.closePath();
-                ctx.stroke();
-            }
+        window.onload = function () {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            var img = document.getElementById("admin");
+            ctx.drawImage(img, 10, 10, 150, 150);
         }
-
     </script>
 </body>
 

@@ -43,8 +43,13 @@
                             <li>@Html.ActionLink("Deals", "Index", "Deals")</li>
                             <li>@Html.ActionLink("Properties", "Home", "Properties")</li>
                         }
+                        else
+                        {
+                            <li>@Html.ActionLink("Properties", "Home", "Properties")</li>
+                        }
                         TempData.Keep();
                     }
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (TempData["Role"] != null)
@@ -53,24 +58,12 @@
                         if (TempData["Role"].ToString().Equals("Admin"))
                         {
                             <li>@Html.ActionLink(@TempData["name"].ToString(), "Index", "Brokers")</li>
-                            <img id="usr" src="~/Content/Resources/Team/Gal.jpeg" style="margin-top:10px; width:30px; height:30px;" class="profile-image img-circle">
                         }
                         else
                         {
                             <li>@Html.ActionLink(@TempData["name"].ToString(), "Account", "Customers")</li>
-                            if (TempData["name"].ToString().Equals("Roey"))
-                            {
-                                <img id="usr" src="~/Content/Resources/Team/miller.jpeg" style="margin-top:10px; width:30px; height:30px;" class="profile-image img-circle">
-                            }
-                            else if (TempData["name"].ToString().Equals("Dorel"))
-                            {
-                                <img id="usr" src="~/Content/Resources/Team/dorel.jpeg" style="margin-top:10px; width:30px; height:30px;" class="profile-image img-circle">
-                            }
-                            else if (TempData["name"].ToString().Equals("Ron"))
-                            {
-                                <img id="usr" src="~/Content/Resources/Team/ron.jpeg" style="margin-top:10px; width:30px; height:30px;" class="profile-image img-circle">
-                            }
                         }
+                        <img id="usr" src="@TempData["img"].ToString()" style="margin-top:10px; width:30px; height:30px;" class="profile-image img-circle">
                         TempData.Keep();
                     }
                     else

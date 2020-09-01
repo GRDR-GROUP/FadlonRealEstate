@@ -1,9 +1,7 @@
 ﻿.multi-column {
-    margin-top: 8rem;
+    margin-top:8rem;
     column-count: 2;
     column-gap: 5px;
-    column-rule-style: hidden;
-    column-rule-width: 3px;
 }
 
 #myCanvas {

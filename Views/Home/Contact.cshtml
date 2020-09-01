@@ -2,21 +2,31 @@
     ViewBag.Title = "Contact";
 }
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/Content/Style/HomeStyle/Contact.css">
-</head>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="~/Content/Style/HomeStyle/Contact.css">
+    </head>
 
 <body>
     <div class="multi-column">
         <div class="contact">
-            <h2 style="color:white;">Contact</h2>
-            <h2 style="color:white">Feel free to Contact us:</h2>
-            <address>
-                <strong>EMAIL:</strong> <a href="mailto:TheBestshopEver@example.com">FadlonRealEstate@gmail.com</a><br />
-                <strong>PHONE NUMBER:</strong> <a href="mailto:TheBestshopEver@example.com">03-9456478</a>
-            </address>
+            <div class="inner-multi-column">
+                <div style="margin-top:4rem;">
+                    <h2 style="color:white;">Contact</h2>
+                    <h3 style="color:white;">Feel free to Contact us:</h3>
+                    <address style="margin-top:3rem;">
+                        <strong>EMAIL:</strong> <a href="mailto:TheBestshopEver@example.com">FadlonRealEstate@gmail.com</a><br />
+                        <strong>PHONE NUMBER:</strong> <a href="mailto:TheBestshopEver@example.com">03-9456478</a>
+                    </address>
+                </div>
+                <div>
+                    <div onload="draw();" data-gr-c-s-loaded="true">
+                        <iframe class="live-sample-frame sample-code-frame" frameborder="1" height="160" id="frame_Lines" src="https://mdn.mozillademos.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes$samples/Lines?revision=1638251" width="160" style="margin-top:50px; margin-left:11rem;" ></iframe>
+                        <canvas id="canvas" width="10" height="10"></canvas>
+                    </div>
+                </div>
+            </div>
 
             <div class="cycler">
                 <div id="cycler">
@@ -31,13 +41,13 @@
             </div>
         </div>
 
-        <button>
-            <iframe class="fb" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D124657625738159%26id%3D124652649071990&show_text=true&width=552&height=510&appId" width="552" height="561" style="border:none;" scrolling="yes" frameborder="1" allowTransparency="false" allow="encrypted-media"></iframe>
+        <button id="fb">
+            <iframe class="fb" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D124657625738159%26id%3D124652649071990&show_text=true&width=552&height=510&appId" width="552" height="510" style="border:solid;" scrolling="yes" frameborder="1" allowTransparency="false" allow="encrypted-media"></iframe>
         </button>
 
     </div>
 
-    <div class="weather" style="margin-top:2rem;">
+    <div class="weather" style="margin-top:5rem;">
         <a class="weatherwidget-io" href="https://forecast7.com/en/32d0134d75/bat-yam/" data-label_1="BAT YAM" data-label_2="WEATHER" data-font="Times New Roman" data-icons="Climacons Animated" data-theme="weather_one">BAT YAM WEATHER</a>
     </div>
 
@@ -66,6 +76,28 @@
             setInterval('cycleImages()', 3000);
         })
     </script>
+
+    <script>
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+                // Filled triangle
+                ctx.beginPath();
+                ctx.moveTo(25, 25);
+                ctx.lineTo(105, 25);
+                ctx.lineTo(25, 105);
+                ctx.fill();
+                // Stroked triangle
+                ctx.beginPath();
+                ctx.moveTo(125, 125);
+                ctx.lineTo(125, 45);
+                ctx.lineTo(45, 125);
+                ctx.closePath();
+                ctx.stroke();
+            }
+        }
+    </script>
 </body>
 
 <style>
@@ -73,7 +105,15 @@
         margin-top: 8rem;
         column-count: 2;
         column-gap: 5px;
-        column-rule-width: 3px;
+    }
+
+    .inner-multi-column {
+        column-count: 2;
+        column-gap: 5px;
+    }
+
+    #fb{
+        margin-top:5rem;
     }
 
     #cycler {
