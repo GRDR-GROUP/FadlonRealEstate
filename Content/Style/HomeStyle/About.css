@@ -1,12 +1,11 @@
-﻿
-.team {
+﻿.team {
     display: flex;
     justify-content: center;
     grid-gap: 2rem;
 }
 
 .Gal {
-    background-image: url("../../Resources/Team/Gal.jpeg");
+    background-image: url("'../../Resources/Team/Gal Jacobson.jpeg'");
     background-size: cover;
     width: 150px;
     height: 150px;
@@ -37,7 +36,7 @@
     }
 
 .miller {
-    background-image: url("../../Resources/Team/miller.jpeg");
+    background-image: url("../../Resources/Team/Roey.jpeg");
     background-size: cover;
     width: 150px;
     height: 150px;
