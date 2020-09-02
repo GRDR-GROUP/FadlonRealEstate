@@ -60,10 +60,10 @@ namespace FadlonRealEstate.Controllers
             {
                 db.Properties.Add(property);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Home");
             }
 
-            return View(property);
+            return RedirectToAction("Home");
         }
 
         // GET: Properties/Edit/5
@@ -92,7 +92,7 @@ namespace FadlonRealEstate.Controllers
             {
                 db.Entry(property).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Home");
             }
             return View(property);
         }
@@ -109,7 +109,8 @@ namespace FadlonRealEstate.Controllers
             {
                 return HttpNotFound();
             }
-            return View(property);
+
+            return View();
         }
 
         // POST: Properties/Delete/5
@@ -120,7 +121,7 @@ namespace FadlonRealEstate.Controllers
             Property property = db.Properties.Find(id);
             db.Properties.Remove(property);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Home");
         }
 
         protected override void Dispose(bool disposing)
